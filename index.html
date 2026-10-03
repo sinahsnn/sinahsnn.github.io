@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mohammadsina Hassannia</title>
+  <meta name="description" content="Mohammadsina Hassannia is a Ph.D. student in Computer Science and Biomedical Informatics at Emory University, working on machine learning for ECG, EEG, and other physiological signals.">
+  <meta name="author" content="Mohammadsina Hassannia">
+  <meta property="og:title" content="Mohammadsina Hassannia">
+  <meta property="og:description" content="Ph.D. student at Emory University working on machine learning for ECG, EEG, and other physiological signals.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sinahsnn.github.io/">
+  <meta name="theme-color" content="#ff4d6d">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23ff4d6d'/%3E%3Cpath d='M2 19h7l2-4 3 9 4-19 3 14h9' fill='none' stroke='%2314123a' stroke-width='2.6' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&amp;family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&amp;display=swap">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#about">Skip to content</a>
+
+<header class="hero">
+  <div class="wrap">
+    <nav class="nav" aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <h1 class="name"><span>Mohammadsina</span> <span>Hassannia</span></h1>
+    <p class="lede">Ph.D. student in Computer Science and Biomedical Informatics at Emory University. I build machine learning methods for ECG, EEG, and other physiological signals.</p>
+    <ul class="links">
+      <li><a class="primary" href="https://scholar.google.com/citations?user=KPI6MPEAAAAJ">Google Scholar</a></li>
+      <li><a href="https://github.com/sinahsnn/">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/mohammad-sina-hasannia-a35944194/">LinkedIn</a></li>
+      <li><a href="#contact">Email</a></li>
+    </ul>
+  </div>
+  <figure class="strip">
+    <canvas id="ecg" role="img" aria-label="An ECG rhythm strip drawn on red grid paper, starting with a one millivolt calibration pulse."></canvas>
+    <figcaption class="wrap">Synthetic lead II at 25 mm/s and 10 mm/mV, after a 1 mV calibration pulse</figcaption>
+  </figure>
+</header>
+
+<main>
+
+  <section id="about" class="section">
+    <div class="wrap split">
+      <h2>About</h2>
+      <div class="stack">
+        <div class="prose">
+          <p class="intro">I work on machine learning, deep learning, and biomedical signal processing for healthcare. I am advised by Prof. Reza Sameni at Emory University.</p>
+          <p>My current research is multimodal physiological modeling for objective mental health assessment. It draws on EEG, ECG, PPG, respiration, electrodermal activity, pupillometry, and psycholinguistic stimuli.</p>
+          <p>Before this I modeled neural activity and simultaneous EEG-fMRI signals, built deep learning methods for ECG reconstruction and large-scale ECG analysis, applied graph signal processing to multichannel physiological data, and benchmarked and fine-tuned large language models for ECG-related medical question answering.</p>
+          <p>I was also a member of the organizing team for the George B. Moody PhysioNet Challenges, where I worked on large-scale biomedical data curation, validation, and challenge development. My broader goal is to develop reliable, interpretable, and clinically meaningful AI methods for physiological signal analysis.</p>
+        </div>
+
+        <div>
+          <h3 class="subhead">Education</h3>
+          <div class="rows">
+            <div class="row">
+              <p class="when">Oct 2024 to present</p>
+              <div>
+                <h3>Ph.D. in Computer Science and Biomedical Informatics</h3>
+                <p>Emory University, Atlanta, GA</p>
+                <p class="meta">Advisor: Prof. Reza Sameni</p>
+              </div>
+            </div>
+            <div class="row">
+              <p class="when">Oct 2024 to 2026</p>
+              <div>
+                <h3>M.Sc. in Computer Science and Biomedical Informatics</h3>
+                <p>Emory University, Atlanta, GA</p>
+                <p class="meta">Advisor: Prof. Reza Sameni</p>
+              </div>
+            </div>
+            <div class="row">
+              <p class="when">Sep 2017 to Sep 2022</p>
+              <div>
+                <h3>B.Sc. in Electrical Engineering</h3>
+                <p>Sharif University of Technology, Tehran, Iran</p>
+                <p class="meta">Thesis advisor: Prof. Arash Amini</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="research" class="section tint">
+    <div class="wrap split">
+      <h2>Research</h2>
+      <div class="stack">
+        <div class="quilt">
+          <article class="tile ultra">
+            <h3>Multimodal physiological AI</h3>
+            <p>Multimodal modeling of EEG, ECG, PPG, respiration, electrodermal activity, and pupillometry for mental health and healthcare applications.</p>
+          </article>
+          <article class="tile pulse">
+            <h3>Biomedical signal and time-series modeling</h3>
+            <p>ECG reconstruction and decomposition, neural activity modeling, simultaneous EEG-fMRI, temporal modeling, and graph signal processing.</p>
+          </article>
+          <article class="tile amber">
+            <h3>Large language models for medicine</h3>
+            <p>Benchmarking, fine-tuning, and evaluation of LLMs for domain-specific medical question answering and clinical reasoning.</p>
+          </article>
+          <article class="tile teal">
+            <h3>Reliable AI for healthcare</h3>
+            <p>Robustness, interpretability, generalization, physiological variability, and clinically meaningful model evaluation.</p>
+          </article>
+        </div>
+
+        <div>
+          <h3 class="subhead">Research projects</h3>
+          <div class="rows">
+            <div class="row">
+              <p class="when">Oct 2024 to present</p>
+              <div>
+                <h3>A neural network architecture for ECG lead decomposition</h3>
+                <p class="meta">Graduate Research Assistant, Emory University. Supervised by Prof. Reza Sameni.</p>
+                <ul class="bullets">
+                  <li>Implemented wavelet- and frequency-based approaches as baselines for reconstruction pipelines.</li>
+                  <li>Developed a sampling-frequency-agnostic hybrid neural network for ECG lead decomposition that separates shared from lead-specific components.</li>
+                  <li>Tested the architecture's robustness by injecting noise and assessing generalization in diagnostic settings.</li>
+                  <li>Combined the decomposition network with a residual CNN and attention classifier to measure the diagnostic value of lead-specific components on the PhysioNet/CinC 2021 Challenge data, more than 88,000 12-lead ECG recordings.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <p class="when">Apr 2025 to present</p>
+              <div>
+                <h3>Evaluation and fine-tuning of LLMs for ECG question answering</h3>
+                <p class="meta">Graduate Research Assistant, Emory University. Supervised by Prof. Reza Sameni and Prof. Matthew A. Reyna.</p>
+                <ul class="bullets">
+                  <li>Built a domain-specific ECG question-answering dataset from medical textbooks, clinical manuals, and conference proceedings using automated LLM-based generation.</li>
+                  <li>Ran zero-shot benchmarks of large language models of different sizes, including Gemini, ChatGPT, Mistral, and Gemma, across categories of medical and engineering ECG questions.</li>
+                  <li>Identified domain-dependent performance gaps between general-purpose and specialized models.</li>
+                  <li>Fine-tuned lightweight language models to reach competitive performance with fewer parameters and better efficiency.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <p class="when">Apr 2021 to May 2023</p>
+              <div>
+                <h3>Generation of synthetic simultaneous EEG-fMRI data</h3>
+                <p class="meta">Bachelor's final project, Sharif University of Technology. Supervised by Prof. Arash Amini.</p>
+                <p class="award"><span class="status">Special B.Sc. Thesis Award</span> Chosen among 200 senior projects in 2021/2022.</p>
+                <ul class="bullets">
+                  <li>Modeled spike-generation blocks using stochastic processes and random variables.</li>
+                  <li>Designed blocks that generate spatially correlated neural activity.</li>
+                  <li>Computed the lead-field matrix by solving the forward problem and clustering the head model.</li>
+                  <li>Proposed pipelines that compute fMRI and EEG data consistent with the simulated neural and hemodynamic activity.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="publications" class="section">
+    <div class="wrap split">
+      <h2>Publications</h2>
+      <ol class="pubs">
+        <li class="pub">
+          <p class="year">2026</p>
+          <div>
+            <h3>ECG-Bench: A Literature-Grounded Benchmark and Fine-Tuning Study for Evaluating Large Language Models on Electrocardiography Knowledge</h3>
+            <p class="authors"><strong>M. Hassannia</strong>, M. A. Reyna, and R. Sameni</p>
+            <p class="venue">Journal of Biomedical Informatics</p>
+            <p class="actions"><span class="status">Submitted</span> <a href="https://arxiv.org/pdf/2608.30893">Preprint on arXiv</a></p>
+          </div>
+        </li>
+        <li class="pub">
+          <p class="year">2026</p>
+          <div>
+            <h3>Reconstruction of Complete 12-Lead ECGs from Incomplete Digitized ECG Printouts</h3>
+            <p class="authors"><strong>M. Hassannia</strong>, M. A. Reyna, G. D. Clifford, and R. Sameni</p>
+            <p class="venue">Computing in Cardiology (CinC)</p>
+            <p class="actions"><a href="https://cinc.org/2026/Program/accepted/254_Preprint.pdf">Preprint (PDF)</a></p>
+          </div>
+        </li>
+        <li class="pub">
+          <p class="year">2025</p>
+          <div>
+            <h3>A Neural Network Architecture for ECG Lead Reconstruction: Separating Shared and Lead-Specific ECG Characteristics</h3>
+            <p class="authors"><strong>M. Hassannia</strong> and R. Sameni</p>
+            <p class="venue">Computing in Cardiology (CinC)</p>
+            <p class="actions"><a href="https://cinc.org/archives/2025/pdf/CinC2025-337.pdf">Paper (PDF)</a></p>
+          </div>
+        </li>
+        <li class="pub">
+          <p class="year">2025</p>
+          <div>
+            <h3>Estimating Blood Pressure from the Electrocardiogram: Findings of a Large-Scale Negative Results Study</h3>
+            <p class="authors">S. S. Mousavi, S. Karimi, <strong>M. Hassannia</strong>, Z. Koscova, A. B. Rad, D. Albert, G. D. Clifford, and R. Sameni</p>
+            <p class="venue">Physiological Measurement</p>
+            <p class="actions"><a href="https://iopscience.iop.org/article/10.1088/1361-6579/ae1926/pdf">Paper (PDF)</a></p>
+          </div>
+        </li>
+        <li class="pub">
+          <p class="year">2025</p>
+          <div>
+            <h3>Detection of Chagas Disease from the ECG: The George B. Moody PhysioNet Challenge 2025</h3>
+            <p class="authors">M. A. Reyna, J. T. Weigle, Z. Koscova, J. Pavlus, S. Saghafi, P. R. Gomes, A. Elola, <strong>M. Hassannia</strong>, K. S. Campbell, A. B. Rad, A. L. Ribeiro, R. Sameni, and G. D. Clifford</p>
+            <p class="venue">Computing in Cardiology (CinC)</p>
+            <p class="actions"><a href="https://cinc.org/archives/2025/pdf/CinC2025-068.pdf">Paper (PDF)</a></p>
+          </div>
+        </li>
+        <li class="pub">
+          <p class="year">2025</p>
+          <div>
+            <h3>ECG-Image-Database: A Dataset of ECG Images with Real-World Imaging and Scanning Artifacts; A Foundation for Computerized ECG Image Digitization and Analysis</h3>
+            <p class="authors">M. A. Reyna, J. Weigle, Z. Koscova, K. Campbell, K. K. Shivashankara, S. Saghafi, S. Nikookar, M. Motie-Shirazi, Y. Kiarashi, S. Seyedi, <strong>M. Hassannia</strong>, A. M. Bjørnstad, E. Stenhede, A. Ranjbar, G. D. Clifford, and R. Sameni</p>
+            <p class="venue">Physiological Measurement</p>
+            <p class="actions"><a href="https://iopscience.iop.org/article/10.1088/1361-6579/ae85b2/pdf">Paper (PDF)</a></p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="experience" class="section tint">
+    <div class="wrap split">
+      <h2>Experience</h2>
+      <div class="stack">
+        <div class="rows">
+          <div class="row">
+            <p class="when">Oct 2024 to Aug 2026</p>
+            <div>
+              <h3>Core PhysioNet / George B. Moody Challenge team</h3>
+              <p class="meta">Emory University. PhysioNet Challenges 2024, 2025, and 2026, and the Kaggle ECG Image Digitization competition. Supervised by Prof. Reza Sameni, Prof. Matthew A. Reyna, and Prof. Gari D. Clifford.</p>
+              <ul class="bullets">
+                <li>Worked in a multidisciplinary team on PhysioNet/CinC challenges built around clinically motivated ECG analysis tasks.</li>
+                <li>Co-authored the CinC 2025 Chagas disease detection challenge paper and contributed to the ECG-Image-Database study that supports ECG image digitization.</li>
+                <li>Helped with data curation, validation, and documentation for public ECG datasets and competition infrastructure.</li>
+                <li>Developed and evaluated machine learning pipelines for large-scale ECG datasets, combining signal processing with interpretable AI.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <p class="when">Jun 2022 to Oct 2022</p>
+            <div>
+              <h3>Undergraduate summer research intern</h3>
+              <p class="meta">Sharif University of Technology. Behavioral data analysis during visual tasks. Supervised by Prof. Hamid Aghajan.</p>
+              <ul class="bullets">
+                <li>Denoised EEG data using Makoto's preprocessing pipeline.</li>
+                <li>Extracted P300 components after epoching the EEG signals.</li>
+                <li>Computed statistical features from EEG recorded during visual tasks.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="subhead">Teaching</h3>
+          <div class="rows">
+            <div class="row">
+              <p class="when">Fall 2023</p>
+              <div>
+                <h3>EEG Signal Processing (graduate course)</h3>
+                <p class="meta">Designed and graded assignments. Tehran, Iran.</p>
+              </div>
+            </div>
+            <div class="row">
+              <p class="when">Fall 2023</p>
+              <div>
+                <h3>Principles of Biomedical Engineering</h3>
+                <p class="meta">Designed and graded assignments and held problem-solving sessions. Tehran, Iran.</p>
+              </div>
+            </div>
+            <div class="row">
+              <p class="when">Spring 2022, Fall 2023</p>
+              <div>
+                <h3>Computational Intelligence</h3>
+                <p class="meta">Designed and graded assignments. Tehran, Iran.</p>
+              </div>
+            </div>
+            <div class="row">
+              <p class="when">Spring 2022</p>
+              <div>
+                <h3>Data Structures and Algorithms</h3>
+                <p class="meta">Designed and graded assignments. Tehran, Iran.</p>
+              </div>
+            </div>
+            <div class="row">
+              <p class="when">Fall 2021, Spring 2022</p>
+              <div>
+                <h3>Communication Systems</h3>
+                <p class="meta">Designed and graded assignments. Tehran, Iran.</p>
+              </div>
+            </div>
+            <div class="row">
+              <p class="when">Spring 2021</p>
+              <div>
+                <h3>Digital Signal Processing</h3>
+                <p class="meta">Graded computer assignments. Tehran, Iran.</p>
+              </div>
+            </div>
+            <div class="row">
+              <p class="when">Spring 2019</p>
+              <div>
+                <h3>Fundamentals of Programming</h3>
+                <p class="meta">Designed and graded homework and held problem-solving sessions. Tehran, Iran.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="section">
+    <div class="wrap split">
+      <h2>Projects</h2>
+      <div class="stack">
+        <p class="intro measure">Code from my research and coursework, all on GitHub.</p>
+        <div class="groups">
+          <div class="group wide">
+            <h3 class="subhead"><span class="swatch pulse" aria-hidden="true"></span>Physiological signals</h3>
+            <div class="projects">
+              <article class="project">
+                <h3><a href="https://github.com/sinahsnn/ecg_kalman_filter">ECG lead reconstruction with Kalman FIR filtering</a></h3>
+                <p>An adaptive Kalman filter FIR framework that reconstructs missing ECG leads from a reduced set of leads, evaluated on PTB-XL.</p>
+              </article>
+              <article class="project">
+                <h3><a href="https://github.com/sinahsnn/EEG-Artifact-Reduction">EEG artifact reduction</a></h3>
+                <p>Artifact removal with blind and semi-blind source separation methods: PCA, GEVD, ICA, and DSS.</p>
+              </article>
+              <article class="project">
+                <h3><a href="https://github.com/sinahsnn/Brain-source-localization">Brain source localization</a></h3>
+                <p>MNE, WMNE, LORETA, and sLORETA source localization applied to epileptic signals.</p>
+              </article>
+              <article class="project">
+                <h3><a href="https://github.com/sinahsnn/EEG-Data-Classification-using-Common-Spatial-Pattern-CSP-method">EEG classification with common spatial patterns</a></h3>
+                <p>The CSP algorithm with an SVM, separating imagined foot movement from mental subtraction.</p>
+              </article>
+              <article class="project">
+                <h3><a href="https://github.com/sinahsnn/EEG-data-classification-using-Genetic-algorithms">EEG classification with genetic algorithms</a></h3>
+                <p>Feature selection by genetic algorithm, with MLP and RBF networks trained on the selected EEG features.</p>
+              </article>
+              <article class="project">
+                <h3><a href="https://github.com/sinahsnn/Dynamics-of-Computational-Neural-Models">Dynamics of computational neuron models</a></h3>
+                <p>Simulations of Hodgkin-Huxley, Izhikevich, and integrate-and-fire neurons and small neural populations, with phase-plane analysis.</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="group">
+            <h3 class="subhead"><span class="swatch ultra" aria-hidden="true"></span>Imaging and vision</h3>
+            <div class="projects">
+              <article class="project">
+                <h3><a href="https://github.com/sinahsnn/Medical-Image-Analysis-and-Processing">Medical image denoising and segmentation</a></h3>
+                <p>Denoising with total variation, anisotropic diffusion, bilateral filtering, non-local means, and wavelets. Segmentation with K-means, FCM, BCFCM, GMM, and deformable models.</p>
+              </article>
+              <article class="project">
+                <h3><a href="https://github.com/sinahsnn/bmi534_final_project">Context-aware image captioning</a></h3>
+                <p>Encoder-decoder captioning on Flickr8k, comparing Inception-V3, EfficientNet-B3, ResNet, U-Net, and Vision Transformer encoders.</p>
+              </article>
+              <article class="project">
+                <h3><a href="https://github.com/sinahsnn/Joint-Object-Detection-Depth_Estimation">Joint object detection and depth estimation</a></h3>
+                <p>Two concatenated deep neural networks that detect objects and estimate depth together.</p>
+              </article>
+              <article class="project">
+                <h3><a href="https://github.com/sinahsnn/Human-Pose-estimation">Human pose estimation</a></h3>
+                <p>A CNN that locates 14 body joints in an image, evaluated with the PCP and PDJ metrics.</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="group">
+            <h3 class="subhead"><span class="swatch amber" aria-hidden="true"></span>Language and audio</h3>
+            <div class="projects">
+              <article class="project">
+                <h3><a href="https://github.com/sinahsnn/Tweet-Sentiment-Analysis-">Tweet sentiment analysis</a></h3>
+                <p>Sentiment models built with one-directional, bidirectional, and pyramid LSTMs, and with BERT.</p>
+              </article>
+              <article class="project">
+                <h3><a href="https://github.com/sinahsnn/Signal-Audio-Image-Denoising-using-Recurrent-Neural-Network-RNN-">Signal denoising with recurrent networks</a></h3>
+                <p>RNN and LSTM models that denoise audio signals and images.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="more" class="section tint">
+    <div class="wrap split">
+      <h2>Awards, service, and skills</h2>
+      <div class="stack">
+        <div class="duo">
+          <div>
+            <h3 class="subhead">Awards</h3>
+            <ul class="plain">
+              <li>Special Bachelor Thesis Award, chosen among 200 senior projects in 2021/2022 at the Electrical Engineering Department of Sharif University of Technology.</li>
+              <li>Fully funded Ph.D. offer from the Emory University Biomedical Informatics and Computer Science program.</li>
+              <li>Full scholarship (tuition waiver) from Sharif University of Technology for the B.Sc. degree.</li>
+              <li>Semi-finalist in the National Mathematics and Physics Olympiad of Iran in 2014 and 2015.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="subhead">Reviewing</h3>
+            <ul class="plain">
+              <li>Program committee member, Computing in Cardiology (CinC), 2026.</li>
+              <li>PLOS ONE: 3 papers, 2025 to present.</li>
+              <li>Discover Medicine (Springer Nature): 2 papers, 2025 to present.</li>
+              <li>Physiological Measurement: 2 papers, 2026.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="subhead">Skills</h3>
+          <dl class="skills">
+            <dt>Programming</dt>
+            <dd>Python, MATLAB, C/C++, R, SQL</dd>
+            <dt>Machine learning</dt>
+            <dd>Classification, regression, cross-validation, hyperparameter tuning, neural networks, attention mechanisms, transformers, multimodal and temporal modeling</dd>
+            <dt>Signal processing</dt>
+            <dd>ECG, EEG, PPG, simultaneous EEG-fMRI modeling, wavelet and frequency-domain analysis, graph signal processing</dd>
+            <dt>Language models</dt>
+            <dd>LLM benchmarking and evaluation, domain-specific QA dataset construction, zero- and few-shot evaluation, prompt design, fine-tuning, parameter-efficient adaptation</dd>
+            <dt>Tools</dt>
+            <dd>PyTorch, NumPy, Pandas, SciPy, scikit-learn, Joblib, Git, Jupyter, Linux, GPU-based computing</dd>
+            <dt>Languages</dt>
+            <dd>Persian (native), English (professional)</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<section id="contact" class="contact">
+  <div class="wrap split">
+    <h2>Contact</h2>
+    <div>
+      <p class="intro">For research questions or collaboration, email me.</p>
+      <a class="email" href="mailto:m.sinahasannia@gmail.com">m.sinahasannia@gmail.com</a>
+      <ul class="elsewhere">
+        <li><a href="https://scholar.google.com/citations?user=KPI6MPEAAAAJ">Google Scholar</a></li>
+        <li><a href="https://github.com/sinahsnn/">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/mohammad-sina-hasannia-a35944194/">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>Mohammadsina Hassannia, Atlanta, GA. Last updated October 2026.</p>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>
