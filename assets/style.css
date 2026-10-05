@@ -24,6 +24,8 @@
   --hero-paper: #fff5f7;
   --grid-fine: rgba(20, 18, 58, 0.09);
   --grid-bold: rgba(20, 18, 58, 0.2);
+  --tile: #ffffff;
+  --glyph-ink: #14123a;
 
   /* Type */
   --display: "Bricolage Grotesque", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
@@ -60,6 +62,8 @@
     --hero-paper: #fff5f7;
     --grid-fine: rgba(20, 18, 58, 0.09);
     --grid-bold: rgba(20, 18, 58, 0.2);
+  --tile: #f3f1ff;
+  --glyph-ink: #14123a;
     color-scheme: dark;
   }
 }
@@ -84,6 +88,8 @@
   --hero-paper: #fff5f7;
   --grid-fine: rgba(20, 18, 58, 0.09);
   --grid-bold: rgba(20, 18, 58, 0.2);
+  --tile: #f3f1ff;
+  --glyph-ink: #14123a;
   color-scheme: dark;
 }
 
@@ -579,22 +585,6 @@ h3 {
   gap: 44px 40px;
 }
 
-@media (min-width: 760px) {
-  .groups {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .groups .group.wide {
-    grid-column: 1 / -1;
-  }
-
-  .groups .group.wide .projects {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0 40px;
-  }
-}
-
 .group {
   min-width: 0;
 }
@@ -628,13 +618,13 @@ h3 {
 }
 
 .project {
-  padding-block: 14px;
+  padding-block: 24px;
   border-bottom: 1px solid var(--rule);
   min-width: 0;
 }
 
 .project h3 {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
 }
 
 .project h3 a {
@@ -651,6 +641,207 @@ h3 {
   margin-top: 4px;
   font-size: 1.02rem;
   line-height: 1.5;
+}
+
+/* Flow diagrams: data (tiles) joined by operations (labeled arrows) */
+
+.section {
+  --flow-bg: var(--paper-2);
+}
+
+.section.tint {
+  --flow-bg: var(--paper);
+}
+
+.sprite {
+  position: absolute;
+}
+
+.flow {
+  --node: 124px;
+  --accent: var(--pulse);
+  --accent-soft: #ffc4ce;
+  --on-accent: #14123a;
+  container-type: inline-size;
+  margin-top: 16px;
+  padding: 18px 18px 16px;
+  background: var(--flow-bg);
+  min-width: 0;
+}
+
+.flow-ultra {
+  --accent: #2f2be0;
+  --accent-soft: #cfcefb;
+  --on-accent: #ffffff;
+}
+
+.flow-amber {
+  --accent: #ffc233;
+  --accent-soft: #ffe59a;
+  --on-accent: #14123a;
+}
+
+.flow-pulse {
+  --accent: #ff4d6d;
+  --accent-soft: #ffc4ce;
+  --on-accent: #14123a;
+}
+
+.flow-steps {
+  display: flex;
+  flex-direction: column;
+}
+
+.node {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.glyph {
+  flex: none;
+  display: block;
+  width: 96px;
+  height: 60px;
+  background: var(--tile);
+  border: 1px solid var(--rule);
+  color: var(--glyph-ink);
+}
+
+.glyph text {
+  font-family: var(--display);
+}
+
+.ga {
+  fill: var(--accent);
+}
+
+.gb {
+  fill: var(--accent-soft);
+}
+
+.gt {
+  fill: var(--tile);
+}
+
+.gs {
+  fill: var(--glyph-ink);
+}
+
+.go {
+  fill: var(--on-accent);
+}
+
+.gk {
+  stroke: var(--on-accent);
+}
+
+.node-name {
+  font-family: var(--display);
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.2;
+  min-width: 0;
+}
+
+.op {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 46px;
+  padding: 10px 0 14px 110px;
+  min-width: 0;
+}
+
+.op::before {
+  content: "";
+  position: absolute;
+  left: 47px;
+  top: 4px;
+  bottom: 10px;
+  width: 2px;
+  background: var(--ink);
+}
+
+.op::after {
+  content: "";
+  position: absolute;
+  left: 42px;
+  bottom: 3px;
+  border-top: 9px solid var(--ink);
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+}
+
+.op-name {
+  display: block;
+  font-family: var(--display);
+  font-size: 0.86rem;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.flow figcaption {
+  margin-top: 14px;
+  max-width: 68ch;
+  font-size: 1rem;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+@container (min-width: 580px) {
+  .flow-steps {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .node {
+    flex: 0 0 var(--node);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .glyph {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 96 / 60;
+  }
+
+  .op {
+    flex: 1 1 0;
+    display: block;
+    min-height: 0;
+    padding: calc(var(--node) * 0.3125 + 9px) 14px 0 10px;
+    text-align: center;
+  }
+
+  .op::before {
+    left: 8px;
+    right: 12px;
+    top: calc(var(--node) * 0.3125 - 1px);
+    bottom: auto;
+    width: auto;
+    height: 2px;
+  }
+
+  .op::after {
+    left: auto;
+    right: 5px;
+    top: calc(var(--node) * 0.3125 - 6px);
+    bottom: auto;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 9px solid var(--ink);
+    border-right: 0;
+  }
+}
+
+@media (min-width: 640px) {
+  .row .flow {
+    margin-left: calc(-11.5rem - 28px);
+  }
 }
 
 /* Small lists: awards, service, skills */
