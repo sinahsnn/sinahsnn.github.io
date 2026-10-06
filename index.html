@@ -501,11 +501,11 @@
                   <ol class="flow-steps">
                     <li class="node"><svg class="glyph" viewBox="0 0 96 60" aria-hidden="true"><use href="#g-leads"/></svg><span class="node-name">Available leads</span></li>
                     <li class="op"><span class="op-name">Kalman FIR filter with weights that adapt over time</span></li>
-                    <li class="node"><svg class="glyph" viewBox="0 0 96 60" aria-hidden="true"><use href="#g-ecg"/></svg><span class="node-name">Reconstructed lead</span></li>
+                    <li class="node real"><a class="glyph real" href="assets/figures/proj-kalman-reconstruction.webp"><img src="assets/figures/proj-kalman-reconstruction.webp" width="1400" height="933" loading="lazy" alt="Two plots: the true lead II ECG overlaid with its Kalman reconstruction over ten seconds, and the small reconstruction error beneath."></a><span class="node-name">Lead II rebuilt from leads I and V1 to V6</span></li>
                     <li class="op"><span class="op-name">Compare with the true lead</span></li>
-                    <li class="node"><svg class="glyph" viewBox="0 0 96 60" aria-hidden="true"><use href="#g-bars"/></svg><span class="node-name">SNR for each lead</span></li>
+                    <li class="node real"><a class="glyph real" href="assets/figures/proj-kalman-snr.webp"><img src="assets/figures/proj-kalman-snr.webp" width="1400" height="747" loading="lazy" alt="Box plots of reconstruction signal-to-noise ratio in decibels for target leads I, II, and V1 to V6. Leads V2 to V5 score highest."></a><span class="node-name">Validation SNR for each target lead</span></li>
                   </ol>
-                  <figcaption>A filter whose weights change over time predicts a missing lead from the leads that are available.</figcaption>
+                  <figcaption>A filter whose weights change over time predicts a missing lead from the leads that are available. Both plots are outputs saved in the repository.</figcaption>
                 </figure>
               </article>
               <article class="project">
@@ -608,7 +608,7 @@
                     <li class="op"><span class="op-name">A decoder writes the words</span></li>
                     <li class="node"><svg class="glyph" viewBox="0 0 96 60" aria-hidden="true"><use href="#g-caption"/></svg><span class="node-name">Caption</span></li>
                   </ol>
-                  <figcaption>An encoder summarizes the picture and a decoder writes the caption, which is scored with BLEU, METEOR, and ROUGE-L.</figcaption>
+                  <figcaption>An encoder summarizes the picture and a decoder writes the caption. Inception-V3 was the best of the five encoders, with BLEU-1 0.2045, METEOR 0.1675, and ROUGE-L 0.2034.</figcaption>
                 </figure>
               </article>
               <article class="project">
@@ -618,11 +618,11 @@
                   <ol class="flow-steps">
                     <li class="node"><svg class="glyph" viewBox="0 0 96 60" aria-hidden="true"><use href="#g-image"/></svg><span class="node-name">RGB image</span></li>
                     <li class="op"><span class="op-name">Detection network</span></li>
-                    <li class="node"><svg class="glyph" viewBox="0 0 96 60" aria-hidden="true"><use href="#g-boxes"/></svg><span class="node-name">Object boxes</span></li>
+                    <li class="node real"><a class="glyph real cover" href="assets/figures/proj-depth-boxes.webp"><img src="assets/figures/proj-depth-boxes.webp" width="640" height="480" loading="lazy" alt="A photo of a dining room with boxes and labels drawn around five chairs and a dining table."></a><span class="node-name">Detected objects</span></li>
                     <li class="op"><span class="op-name">Depth network</span></li>
-                    <li class="node"><svg class="glyph" viewBox="0 0 96 60" aria-hidden="true"><use href="#g-depth"/></svg><span class="node-name">Depth map</span></li>
+                    <li class="node real"><a class="glyph real" href="assets/figures/proj-depth-map.webp"><img src="assets/figures/proj-depth-map.webp" width="332" height="239" loading="lazy" alt="A predicted depth map of an indoor scene, colored from dark for near surfaces to yellow for far ones, with a scale in meters."></a><span class="node-name">Predicted depth</span></li>
                   </ol>
-                  <figcaption>Two networks work on the same scene: one finds the objects and the other estimates how far away things are.</figcaption>
+                  <figcaption>Two networks work on the same scene: one finds the objects and the other estimates how far away things are. Both images are model outputs. On the test set the depth network reached &delta;<sub>1</sub> = 0.652, an absolute relative error of 0.189, and an RMSE of 1.448.</figcaption>
                 </figure>
               </article>
               <article class="project">
@@ -634,9 +634,9 @@
                     <li class="op"><span class="op-name">CNN</span></li>
                     <li class="node"><svg class="glyph" viewBox="0 0 96 60" aria-hidden="true"><use href="#g-skeleton"/></svg><span class="node-name">14 joint positions</span></li>
                     <li class="op"><span class="op-name">Compare with labeled joints</span></li>
-                    <li class="node"><svg class="glyph" viewBox="0 0 96 60" aria-hidden="true"><use href="#g-bars"/></svg><span class="node-name">PCP and PDJ scores</span></li>
+                    <li class="node real"><a class="glyph real" href="assets/figures/proj-pose-pdj.webp"><img src="assets/figures/proj-pose-pdj.webp" width="386" height="278" loading="lazy" alt="A line chart of the PDJ score for the right hip over 100 training epochs. Training and validation curves both rise to about 0.7."></a><span class="node-name">PDJ for the right hip during training</span></li>
                   </ol>
-                  <figcaption>The network predicts 14 joint positions for each image and is scored by how many limbs and joints land close to the labels.</figcaption>
+                  <figcaption>The network predicts 14 joint positions for each image and is scored by how many limbs and joints land close to the labels. The plot is from the training notebook.</figcaption>
                 </figure>
               </article>
             </div>
@@ -653,9 +653,9 @@
                     <li class="op"><span class="op-name">GloVe embeddings or BERT tokens</span></li>
                     <li class="node"><svg class="glyph" viewBox="0 0 96 60" aria-hidden="true"><use href="#g-vector"/></svg><span class="node-name">Word vectors</span></li>
                     <li class="op"><span class="op-name">LSTM variants or BERT</span></li>
-                    <li class="node"><svg class="glyph" viewBox="0 0 96 60" aria-hidden="true"><use href="#g-tag"/></svg><span class="node-name">Sentiment class</span></li>
+                    <li class="node real"><a class="glyph real" href="assets/figures/proj-tweet-confusion.webp"><img src="assets/figures/proj-tweet-confusion.webp" width="196" height="128" loading="lazy" alt="A two-by-two confusion matrix for the test tweets: 126 and 125 correct on the diagonal, 32 and 18 errors off it."></a><span class="node-name">Confusion matrix for BERT on test tweets</span></li>
                   </ol>
-                  <figcaption>Each tweet becomes a sequence of vectors that a recurrent or transformer model classifies by sentiment.</figcaption>
+                  <figcaption>Each tweet becomes a sequence of vectors that a recurrent or transformer model classifies by sentiment. On 301 test tweets, accuracy was 0.75 for an LSTM with GloVe embeddings and 0.83 for BERT.</figcaption>
                 </figure>
               </article>
               <article class="project">
@@ -665,11 +665,11 @@
                   <ol class="flow-steps">
                     <li class="node"><svg class="glyph" viewBox="0 0 96 60" aria-hidden="true"><use href="#g-noisy"/></svg><span class="node-name">Noisy signal</span></li>
                     <li class="op"><span class="op-name">RNN or LSTM</span></li>
-                    <li class="node"><svg class="glyph" viewBox="0 0 96 60" aria-hidden="true"><use href="#g-clean"/></svg><span class="node-name">Denoised signal</span></li>
+                    <li class="node real"><a class="glyph real" href="assets/figures/proj-rnn-denoised.webp"><img src="assets/figures/proj-rnn-denoised.webp" width="400" height="262" loading="lazy" alt="A closed two-dimensional curve drawn three ways: a jagged noisy version, the smooth clean curve, and the denoised output that follows the clean curve closely."></a><span class="node-name">Noisy, clean, and denoised signal</span></li>
                     <li class="op"><span class="op-name">Compare with the clean signal</span></li>
-                    <li class="node"><svg class="glyph" viewBox="0 0 96 60" aria-hidden="true"><use href="#g-bars"/></svg><span class="node-name">SNR</span></li>
+                    <li class="node real"><a class="glyph real" href="assets/figures/proj-rnn-snr.webp"><img src="assets/figures/proj-rnn-snr.webp" width="382" height="278" loading="lazy" alt="A line chart of signal-to-noise ratio over 50 training epochs. The training curve reaches about 30 decibels and the validation curve about 26."></a><span class="node-name">SNR during training</span></li>
                   </ol>
-                  <figcaption>A recurrent network learns to recover a clean signal from its noisy version, scored by signal-to-noise ratio.</figcaption>
+                  <figcaption>A recurrent network learns to recover a clean signal from its noisy version. On test data the SNR rose from 13.0 dB at the input to 28.1 dB at the output.</figcaption>
                 </figure>
               </article>
             </div>
