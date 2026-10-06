@@ -417,6 +417,32 @@ h3 {
   text-wrap: balance;
 }
 
+.about-side {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+}
+
+.portrait {
+  display: block;
+  width: 100%;
+  max-width: 230px;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  box-shadow: 10px 10px 0 var(--pulse);
+}
+
+@media (min-width: 900px) {
+  .portrait {
+    max-width: 260px;
+    width: calc(100% - 10px);
+  }
+}
+
 .stack {
   display: flex;
   flex-direction: column;
