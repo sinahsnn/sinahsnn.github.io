@@ -7,7 +7,8 @@ https://sinahsnn.github.io/.
 
 - `index.html` holds all of the page content.
 - `assets/style.css` holds the design: colors, type, and layout.
-- `assets/site.js` draws the ECG rhythm strip in the header.
+- `assets/site.js` draws the animated multimodal recording in the header.
+- `assets/figures/` holds the paper and poster figures.
 
 There is no build step. Edit the files and push to `main`, and GitHub Pages
 publishes the change.

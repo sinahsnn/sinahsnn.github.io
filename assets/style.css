@@ -19,11 +19,9 @@
   --on-amber: #14123a;
   --on-teal: #14123a;
 
-  --hero-bg: #ff4d6d;
-  --hero-ink: #14123a;
-  --hero-paper: #fff5f7;
-  --grid-fine: rgba(20, 18, 58, 0.09);
-  --grid-bold: rgba(20, 18, 58, 0.2);
+  --hero-bg: #14123a;
+  --hero-ink: #f6f4ff;
+  --hero-paper: #14123a;
   --tile: #ffffff;
   --glyph-ink: #14123a;
 
@@ -37,7 +35,6 @@
   --step-2: 1.75rem;
   --step-3: clamp(2.1rem, 4.6vw, 3.5rem);
 
-  --mm: 6px;             /* 1 mm of ECG paper */
   --gutter: clamp(16px, 4vw, 48px);
 }
 
@@ -57,12 +54,10 @@
     --on-ultra: #ffffff;
     --on-amber: #14123a;
     --on-teal: #14123a;
-    --hero-bg: #ff4d6d;
-    --hero-ink: #14123a;
-    --hero-paper: #fff5f7;
-    --grid-fine: rgba(20, 18, 58, 0.09);
-    --grid-bold: rgba(20, 18, 58, 0.2);
-  --tile: #f3f1ff;
+    --hero-bg: #14123a;
+    --hero-ink: #f6f4ff;
+    --hero-paper: #14123a;
+      --tile: #f3f1ff;
   --glyph-ink: #14123a;
     color-scheme: dark;
   }
@@ -83,11 +78,9 @@
   --on-ultra: #ffffff;
   --on-amber: #14123a;
   --on-teal: #14123a;
-  --hero-bg: #ff4d6d;
-  --hero-ink: #14123a;
-  --hero-paper: #fff5f7;
-  --grid-fine: rgba(20, 18, 58, 0.09);
-  --grid-bold: rgba(20, 18, 58, 0.2);
+  --hero-bg: #14123a;
+  --hero-ink: #f6f4ff;
+  --hero-paper: #14123a;
   --tile: #f3f1ff;
   --glyph-ink: #14123a;
   color-scheme: dark;
@@ -169,17 +162,11 @@ button:focus-visible {
 .hero {
   background-color: var(--hero-bg);
   background-image:
-    linear-gradient(var(--grid-bold) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-bold) 1px, transparent 1px),
-    linear-gradient(var(--grid-fine) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-fine) 1px, transparent 1px);
-  background-size:
-    calc(var(--mm) * 5) calc(var(--mm) * 5),
-    calc(var(--mm) * 5) calc(var(--mm) * 5),
-    var(--mm) var(--mm),
-    var(--mm) var(--mm);
+    radial-gradient(900px 420px at 78% 100%, rgba(74, 70, 240, 0.42), transparent 70%),
+    radial-gradient(700px 360px at 8% 0%, rgba(255, 92, 121, 0.16), transparent 70%);
   color: var(--hero-ink);
   overflow: hidden;
+  padding-bottom: clamp(28px, 4vw, 48px);
 }
 
 .hero a {
@@ -214,22 +201,43 @@ button:focus-visible {
   font-family: var(--display);
   font-weight: 800;
   font-stretch: 75%;
-  font-size: clamp(2.8rem, 13.6vw, 11.5rem);
-  line-height: 0.88;
+  font-size: clamp(2.8rem, 13.6vw, 5.4rem);
+  line-height: 0.9;
   letter-spacing: -0.015em;
-  padding-block: clamp(20px, 5vw, 64px) clamp(18px, 2.4vw, 32px);
+  padding-block: clamp(14px, 3vw, 34px) clamp(16px, 2vw, 24px);
 }
 
 .name span {
   display: block;
 }
 
+@media (min-width: 700px) {
+  .name {
+    font-size: clamp(3rem, 7.6vw, 6.6rem);
+  }
+
+  .name span {
+    display: inline;
+  }
+}
+
+.intro-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px 40px;
+  padding-bottom: clamp(24px, 3vw, 36px);
+}
+
 .lede {
+  flex: 1 1 26rem;
+  min-width: 0;
   font-family: var(--display);
-  font-size: clamp(1.15rem, 2.1vw, 1.6rem);
+  font-size: clamp(1.1rem, 1.7vw, 1.4rem);
   font-weight: 500;
-  line-height: 1.3;
-  max-width: 34em;
+  line-height: 1.35;
+  max-width: 36em;
   text-wrap: balance;
 }
 
@@ -237,7 +245,6 @@ button:focus-visible {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  padding-block: 28px 8px;
   font-family: var(--display);
   font-weight: 600;
   font-size: 1rem;
@@ -263,21 +270,104 @@ button:focus-visible {
   color: var(--hero-ink);
 }
 
-.strip {
-  display: block;
+/* The recording: one lane per signal, icons on the left, traces on a canvas */
+
+.recording {
+  --lane-h: 46px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.strip canvas {
+@media (min-width: 700px) {
+  .recording {
+    --lane-h: 52px;
+  }
+}
+
+.rec-body {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  border: 1px solid rgba(246, 244, 255, 0.16);
+  background-color: rgba(246, 244, 255, 0.035);
+  background-image: linear-gradient(rgba(246, 244, 255, 0.08) 1px, transparent 1px);
+  background-size: 100% var(--lane-h);
+  background-position: 0 -1px;
+}
+
+.lanes {
+  display: grid;
+  grid-auto-rows: var(--lane-h);
+  border-right: 1px solid rgba(246, 244, 255, 0.12);
+}
+
+.lane {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-inline: 12px 14px;
+  color: var(--c);
+}
+
+.lane-eeg { --c: #a99bff; }
+.lane-ecg { --c: #ff5c79; }
+.lane-ppg { --c: #ff9d5c; }
+.lane-resp { --c: #2fd6b0; }
+.lane-eda { --c: #ffc233; }
+.lane-pupil { --c: #5cc8ff; }
+.lane-lang { --c: #e9e6ff; }
+
+.icon {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  overflow: visible;
+}
+
+.ic-heart,
+.ic-lungs {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.lane-name {
+  font-family: var(--display);
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--hero-ink);
+}
+
+@media (max-width: 479px) {
+  .lane {
+    padding-inline: 10px;
+  }
+
+  .lane-name {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+
+#signals {
   display: block;
   width: 100%;
-  height: calc(var(--mm) * 30);
+  height: calc(var(--lane-h) * 7);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 14%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 14%);
 }
 
-.strip figcaption {
+.recording figcaption {
   font-family: var(--display);
   font-size: var(--step--1);
   font-weight: 500;
-  padding-block: 0 14px;
+  line-height: 1.4;
+  max-width: 68ch;
+  color: rgba(246, 244, 255, 0.72);
 }
 
 /* ---------- Sections ---------- */
