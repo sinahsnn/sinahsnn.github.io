@@ -577,6 +577,35 @@ h3 {
   line-height: 1.5;
 }
 
+.pub-fig {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 18px;
+  max-width: 46rem;
+  min-width: 0;
+}
+
+.pub-fig .plate {
+  display: block;
+  padding: 8px;
+  background: #ffffff;
+  border: 1px solid var(--rule);
+}
+
+.pub-fig img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.pub-fig figcaption {
+  font-size: 1rem;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
 /* Projects */
 
 .groups {

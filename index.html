@@ -251,6 +251,10 @@
             <p class="authors"><strong>M. Hassannia</strong>, M. A. Reyna, G. D. Clifford, and R. Sameni</p>
             <p class="venue">Computing in Cardiology (CinC)</p>
             <p class="actions"><a href="https://cinc.org/2026/Program/accepted/254_Preprint.pdf">Preprint (PDF)</a></p>
+            <figure class="pub-fig">
+              <a class="plate" href="assets/figures/cinc-2026-pipeline.webp"><img src="assets/figures/cinc-2026-pipeline.webp" width="2400" height="1236" loading="lazy" alt="A numbered pipeline diagram. A clinical ECG is printed with only 2.5 seconds per lead, the printout is digitized, and a reconstruction framework recovers limb leads, detects R-peaks on lead II, averages beats, replicates templates, realigns them, and applies a null-space projection to give all twelve leads over ten seconds."></a>
+              <figcaption>The pipeline. A printout keeps only 2.5 seconds of each lead, so 67.5% of the signal is lost. After digitization, the missing segments are rebuilt from limb-lead relationships and beat templates aligned to the rhythm lead, then projected so the limb leads obey their known constraints. <a href="assets/figures/cinc-2026-pipeline.webp">Open the figure full size</a>.</figcaption>
+            </figure>
           </div>
         </li>
         <li class="pub">
@@ -260,6 +264,10 @@
             <p class="authors"><strong>M. Hassannia</strong> and R. Sameni</p>
             <p class="venue">Computing in Cardiology (CinC)</p>
             <p class="actions"><a href="https://cinc.org/archives/2025/pdf/CinC2025-337.pdf">Paper (PDF)</a></p>
+            <figure class="pub-fig">
+              <a class="plate" href="assets/figures/cinc-2025-architecture.webp"><img src="assets/figures/cinc-2025-architecture.webp" width="2000" height="1652" loading="lazy" alt="An architecture diagram with three stacked layers: a linear spatial layer using a least-squares model, a nonlinear spatial layer using an MLP, and a spatiotemporal layer using an RNN. Plots on the right show each layer's reconstruction overlaid on the original ECG, and plots on the left show the error shrinking from layer to layer."></a>
+              <figcaption>The architecture. Three stacked layers (linear least squares, an MLP, and an RNN) each add a correction to the previous estimate. Right: the reconstructed lead against the original. Left: the error that remains after each layer. <a href="assets/figures/cinc-2025-architecture.webp">Open the figure full size</a>.</figcaption>
+            </figure>
           </div>
         </li>
         <li class="pub">
