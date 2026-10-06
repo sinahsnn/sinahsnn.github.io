@@ -543,14 +543,28 @@ h3 {
   max-width: 62ch;
 }
 
-/* University logos: transparent files straight on the page, with a light version for dark themes */
+/* University logos: transparent files straight on the page, with a light version for dark themes.
+   Each sits at the left of its education row, above the dates. */
+
+.row.edu {
+  grid-template-areas: "logo" "when" "body";
+  gap: 6px 28px;
+}
+
+.row.edu > .when {
+  grid-area: when;
+}
+
+.row.edu > div {
+  grid-area: body;
+}
 
 .edu-logo {
+  grid-area: logo;
   display: flex;
   align-items: center;
   justify-self: start;
-  align-self: center;
-  margin-top: 10px;
+  margin-bottom: 6px;
 }
 
 .edu-logo img {
@@ -559,11 +573,11 @@ h3 {
 }
 
 .edu-logo .logo-wide {
-  height: 46px;
+  height: 42px;
 }
 
 .edu-logo .logo-round {
-  height: 66px;
+  height: 62px;
 }
 
 .logo-on-light {
@@ -581,12 +595,9 @@ h3 {
 
 @media (min-width: 640px) {
   .row.edu {
-    grid-template-columns: 11.5rem minmax(0, 1fr) 170px;
-  }
-
-  .edu-logo {
-    margin-top: 0;
-    justify-self: center;
+    grid-template-columns: 11.5rem minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas: "logo body" "when body";
   }
 }
 
