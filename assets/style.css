@@ -1103,6 +1103,29 @@ h3 {
   object-fit: contain;
 }
 
+.glyph.real.square {
+  aspect-ratio: 1 / 1;
+}
+
+.glyph.real.dark {
+  background: #000000;
+}
+
+.flow-title {
+  font-family: var(--display);
+  font-size: 0.92rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.flow-steps + .flow-title {
+  margin-top: 22px;
+}
+
+.project .pub-fig {
+  margin-top: 14px;
+}
+
 .glyph.real.cover img {
   object-fit: cover;
 }
