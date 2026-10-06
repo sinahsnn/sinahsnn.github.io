@@ -24,6 +24,9 @@
   --hero-paper: #14123a;
   --tile: #ffffff;
   --glyph-ink: #14123a;
+  --show-on-light: block;
+  --show-on-dark: none;
+  --mono-logo: none;
 
   /* Type */
   --display: "Bricolage Grotesque", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
@@ -59,6 +62,9 @@
     --hero-paper: #14123a;
       --tile: #f3f1ff;
   --glyph-ink: #14123a;
+  --show-on-light: none;
+  --show-on-dark: block;
+  --mono-logo: invert(1);
     color-scheme: dark;
   }
 }
@@ -83,6 +89,9 @@
   --hero-paper: #14123a;
   --tile: #f3f1ff;
   --glyph-ink: #14123a;
+  --show-on-light: none;
+  --show-on-dark: block;
+  --mono-logo: invert(1);
   color-scheme: dark;
 }
 
@@ -534,37 +543,50 @@ h3 {
   max-width: 62ch;
 }
 
-/* University logos sit on a white plate so the official colors hold in both themes */
+/* University logos: transparent files straight on the page, with a light version for dark themes */
 
 .edu-logo {
   display: flex;
   align-items: center;
-  justify-content: center;
   justify-self: start;
   align-self: center;
-  width: 170px;
-  height: 68px;
-  margin-top: 8px;
-  padding: 8px 12px;
-  background: #ffffff;
+  margin-top: 10px;
 }
 
 .edu-logo img {
-  display: block;
   width: auto;
-  height: auto;
   max-width: 100%;
-  max-height: 100%;
+}
+
+.edu-logo .logo-wide {
+  height: 46px;
+}
+
+.edu-logo .logo-round {
+  height: 66px;
+}
+
+.logo-on-light {
+  display: var(--show-on-light);
+}
+
+.logo-on-dark {
+  display: var(--show-on-dark);
+}
+
+.logo-mono {
+  display: block;
+  filter: var(--mono-logo);
 }
 
 @media (min-width: 640px) {
   .row.edu {
-    grid-template-columns: 11.5rem minmax(0, 1fr) auto;
+    grid-template-columns: 11.5rem minmax(0, 1fr) 170px;
   }
 
   .edu-logo {
     margin-top: 0;
-    justify-self: end;
+    justify-self: center;
   }
 }
 
