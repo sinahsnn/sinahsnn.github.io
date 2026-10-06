@@ -601,6 +601,78 @@ h3 {
   }
 }
 
+/* Education timeline: a vertical line with an arrow pointing to the present and a dot per degree */
+
+.timeline {
+  position: relative;
+  padding-left: 34px;
+  padding-top: 30px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 9px;
+  top: 12px;
+  width: 2px;
+  height: 18px;
+  background: var(--ink);
+}
+
+.timeline::after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 13px solid var(--ink);
+}
+
+.timeline-now {
+  position: absolute;
+  left: 34px;
+  top: -4px;
+  font-family: var(--display);
+  font-size: var(--step--1);
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+.timeline .row {
+  position: relative;
+  padding-top: 18px;
+}
+
+.timeline .row::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  left: -31px;
+  top: 30px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--pulse);
+  border: 2px solid var(--ink);
+}
+
+.timeline .row::after {
+  content: "";
+  position: absolute;
+  left: -25px;
+  top: 0;
+  bottom: -1px;
+  width: 2px;
+  background: var(--ink);
+}
+
+.timeline .row:last-child::after {
+  bottom: auto;
+  height: 32px;
+}
+
 .bullets {
   display: flex;
   flex-direction: column;
