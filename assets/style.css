@@ -557,6 +557,75 @@ h3 {
   line-height: 1.45;
 }
 
+/* Tile illustrations: line drawings in the tile's ink, with soft fills and a few colored details */
+
+.tile {
+  --ill-line: #14123a;
+  --ill-soft: rgba(255, 255, 255, 0.42);
+  --ill-pop: #ffffff;
+}
+
+.tile.ultra {
+  --ill-line: #ffffff;
+  --ill-soft: rgba(255, 255, 255, 0.16);
+  --ill-pop: #ffffff;
+}
+
+.tile-art {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  margin-bottom: 10px;
+  overflow: visible;
+}
+
+.tile-art text {
+  font-family: var(--display);
+}
+
+.tile-art .l {
+  fill: none;
+  stroke: var(--ill-line);
+  stroke-width: 2.3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.tile-art .t {
+  stroke-width: 1.5;
+}
+
+.tile-art .thick {
+  stroke-width: 5;
+}
+
+.tile-art .dash {
+  stroke-dasharray: 3 4;
+}
+
+.tile-art .soft {
+  fill: var(--ill-soft);
+}
+
+.tile-art .pop {
+  fill: var(--ill-pop);
+}
+
+.tile-art .f-line {
+  fill: var(--ill-line);
+}
+
+.tile-art .f-pink { fill: #ff4d6d; }
+.tile-art .f-teal { fill: #19c9a3; }
+.tile-art .f-amber { fill: #ffc233; }
+.tile-art .f-ultra { fill: #2f2be0; }
+.tile-art .s-white { stroke: #ffffff; }
+.tile-art .s-violet { stroke: #cfc8ff; }
+.tile-art .s-pink { stroke: #ff9db0; }
+.tile-art .s-sky { stroke: #9fe0ff; }
+.tile-art .s-teal { stroke: #6df2d2; }
+
 .tile.pulse {
   background: var(--pulse);
   color: var(--on-pulse);
