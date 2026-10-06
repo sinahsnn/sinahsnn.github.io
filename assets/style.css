@@ -24,6 +24,8 @@
   --hero-paper: #14123a;
   --tile: #ffffff;
   --glyph-ink: #14123a;
+  --dot: rgba(47, 43, 224, 0.13);
+  --contact-veil: rgba(47, 43, 224, 0.86);
   --show-on-light: block;
   --show-on-dark: none;
   --mono-logo: none;
@@ -62,6 +64,8 @@
     --hero-paper: #14123a;
       --tile: #f3f1ff;
   --glyph-ink: #14123a;
+  --dot: rgba(169, 166, 255, 0.1);
+  --contact-veil: rgba(58, 54, 226, 0.86);
   --show-on-light: none;
   --show-on-dark: block;
   --mono-logo: invert(1);
@@ -89,6 +93,8 @@
   --hero-paper: #14123a;
   --tile: #f3f1ff;
   --glyph-ink: #14123a;
+  --dot: rgba(169, 166, 255, 0.1);
+  --contact-veil: rgba(58, 54, 226, 0.86);
   --show-on-light: none;
   --show-on-dark: block;
   --mono-logo: invert(1);
@@ -170,9 +176,14 @@ button:focus-visible {
 
 .hero {
   background-color: var(--hero-bg);
+  /* A spectrogram of a synthetic signal, dimmed where the text and the recording sit */
   background-image:
-    radial-gradient(900px 420px at 78% 100%, rgba(74, 70, 240, 0.42), transparent 70%),
-    radial-gradient(700px 360px at 8% 0%, rgba(255, 92, 121, 0.16), transparent 70%);
+    linear-gradient(180deg, rgba(20, 18, 58, 0.36) 0%, rgba(20, 18, 58, 0.1) 26%, rgba(20, 18, 58, 0.45) 58%, rgba(20, 18, 58, 0.92) 100%),
+    linear-gradient(90deg, rgba(20, 18, 58, 0.84) 0%, rgba(20, 18, 58, 0.46) 42%, rgba(20, 18, 58, 0) 100%),
+    url("hero-spectrogram.webp");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
   color: var(--hero-ink);
   overflow: hidden;
   padding-bottom: clamp(28px, 4vw, 48px);
@@ -297,8 +308,10 @@ button:focus-visible {
 .rec-body {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
-  border: 1px solid rgba(246, 244, 255, 0.16);
-  background-color: rgba(246, 244, 255, 0.035);
+  border: 1px solid rgba(246, 244, 255, 0.2);
+  background-color: rgba(16, 14, 44, 0.8);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   background-image: linear-gradient(rgba(246, 244, 255, 0.08) 1px, transparent 1px);
   background-size: 100% var(--lane-h);
   background-position: 0 -1px;
@@ -386,8 +399,11 @@ button:focus-visible {
   border-bottom: 1px solid var(--rule);
 }
 
+/* Tinted sections carry a faint dot grid, like plotting paper */
 .section.tint {
-  background: var(--paper-2);
+  background-color: var(--paper-2);
+  background-image: radial-gradient(circle, var(--dot) 1px, transparent 1.5px);
+  background-size: 22px 22px;
 }
 
 .split {
@@ -1263,7 +1279,12 @@ h3 {
 /* ---------- Contact ---------- */
 
 .contact {
-  background: var(--ultra);
+  background-color: var(--ultra);
+  background-image:
+    linear-gradient(var(--contact-veil), var(--contact-veil)),
+    url("hero-spectrogram.webp");
+  background-size: cover;
+  background-position: center;
   color: var(--on-ultra);
   padding-block: clamp(56px, 8vw, 104px);
 }
