@@ -513,13 +513,17 @@
                 <p>Artifact removal with blind and semi-blind source separation methods: PCA, GEVD, ICA, and DSS.</p>
                 <figure class="flow flow-pulse">
                   <ol class="flow-steps">
-                    <li class="node"><svg class="glyph" viewBox="0 0 96 60" aria-hidden="true"><use href="#g-eegnoisy"/></svg><span class="node-name">Contaminated EEG</span></li>
+                    <li class="node real"><a class="glyph real square" href="assets/figures/proj-eeg-contaminated.webp"><img src="assets/figures/proj-eeg-contaminated.webp" width="561" height="632" loading="lazy" alt="Twenty-one channels of EEG over five seconds. The frontal channels Fp1 and Fp2 show three large eye-blink deflections."></a><span class="node-name">Contaminated EEG</span></li>
                     <li class="op"><span class="op-name">PCA, ICA, GEVD, or DSS</span></li>
-                    <li class="node"><svg class="glyph" viewBox="0 0 96 60" aria-hidden="true"><use href="#g-sources"/></svg><span class="node-name">Separated sources</span></li>
+                    <li class="node real"><a class="glyph real square" href="assets/figures/proj-eeg-sources.webp"><img src="assets/figures/proj-eeg-sources.webp" width="355" height="325" loading="lazy" alt="The same recording shown as separated sources. The eye blinks are concentrated in the first source."></a><span class="node-name">Separated sources</span></li>
                     <li class="op"><span class="op-name">Drop the artifact sources</span></li>
-                    <li class="node"><svg class="glyph" viewBox="0 0 96 60" aria-hidden="true"><use href="#g-eeg"/></svg><span class="node-name">Clean EEG</span></li>
+                    <li class="node real"><a class="glyph real square" href="assets/figures/proj-eeg-denoised.webp"><img src="assets/figures/proj-eeg-denoised.webp" width="606" height="500" loading="lazy" alt="The reconstructed EEG after removing the artifact sources. The blink deflections on Fp1 and Fp2 are gone."></a><span class="node-name">Denoised EEG</span></li>
                   </ol>
-                  <figcaption>Source separation isolates eye and muscle artifacts as their own sources, so they can be removed before the EEG is rebuilt.</figcaption>
+                  <figcaption>An EEG recording with eye blinks on the frontal channels, the sources that ICA separates from it, and the signal rebuilt without the artifact sources.</figcaption>
+                </figure>
+                <figure class="pub-fig">
+                  <a class="plate" href="assets/figures/proj-eeg-gevd-dss.webp"><img src="assets/figures/proj-eeg-gevd-dss.webp" width="2400" height="1029" loading="lazy" alt="A table with one row for each of three source types: periodic, band-limited from 10 to 15 hertz, and non-stationary. For each it gives the GEVD criterion, the sources GEVD estimates, the denoising function used in DSS, and the sources DSS estimates."></a>
+                  <figcaption>Semi-blind separation with GEVD and DSS for a periodic source, a 10 to 15 Hz band-limited source, and a non-stationary source. <a href="assets/figures/proj-eeg-gevd-dss.webp">Open the figure full size</a>.</figcaption>
                 </figure>
               </article>
               <article class="project">
@@ -527,13 +531,13 @@
                 <p>MNE, WMNE, LORETA, and sLORETA source localization applied to epileptic signals.</p>
                 <figure class="flow flow-pulse">
                   <ol class="flow-steps">
-                    <li class="node"><svg class="glyph" viewBox="0 0 96 60" aria-hidden="true"><use href="#g-dipole"/></svg><span class="node-name">Dipole in a spherical head</span></li>
+                    <li class="node real"><a class="glyph real square" href="assets/figures/proj-brain-dipole-grid.webp"><img src="assets/figures/proj-brain-dipole-grid.webp" width="516" height="384" loading="lazy" alt="A three-dimensional plot of a hemispherical head model filled with a regular grid of candidate dipoles."></a><span class="node-name">Candidate dipoles on a 1 cm grid</span></li>
                     <li class="op"><span class="op-name">Forward model</span></li>
-                    <li class="node"><svg class="glyph" viewBox="0 0 96 60" aria-hidden="true"><use href="#g-eegin"/></svg><span class="node-name">Scalp EEG</span></li>
+                    <li class="node real"><a class="glyph real square" href="assets/figures/proj-brain-scalp.webp"><img src="assets/figures/proj-brain-scalp.webp" width="348" height="194" loading="lazy" alt="A scalp map with a single bright region near the top of the head, beside EEG traces in which one channel shows sharp spikes."></a><span class="node-name">Scalp potentials from one dipole</span></li>
                     <li class="op"><span class="op-name">MNE, WMNE, LORETA, sLORETA</span></li>
-                    <li class="node"><svg class="glyph" viewBox="0 0 96 60" aria-hidden="true"><use href="#g-found"/></svg><span class="node-name">Estimated source</span></li>
+                    <li class="node real"><a class="glyph real square" href="assets/figures/proj-brain-estimate.webp"><img src="assets/figures/proj-brain-estimate.webp" width="274" height="232" loading="lazy" alt="The head model with electrode positions marked around it and the estimated dipole highlighted inside."></a><span class="node-name">Estimated source in the head model</span></li>
                   </ol>
-                  <figcaption>A known source is projected to the scalp, and each inverse method is judged by how well it finds that source again.</figcaption>
+                  <figcaption>A known source is projected to the scalp, and each inverse method is judged by how well it finds that source again. For this superficial dipole the reported location error was 2.45 for MNE, 3.46 for WMNE, and 4.24 for LORETA.</figcaption>
                 </figure>
               </article>
               <article class="project">
@@ -587,14 +591,21 @@
                 <h3><a href="https://github.com/sinahsnn/Medical-Image-Analysis-and-Processing">Medical image denoising and segmentation</a></h3>
                 <p>Denoising with total variation, anisotropic diffusion, bilateral filtering, non-local means, and wavelets. Segmentation with K-means, FCM, BCFCM, GMM, and deformable models.</p>
                 <figure class="flow flow-ultra">
-                  <ol class="flow-steps">
-                    <li class="node"><svg class="glyph" viewBox="0 0 96 60" aria-hidden="true"><use href="#g-imagenoise"/></svg><span class="node-name">Noisy medical image</span></li>
-                    <li class="op"><span class="op-name">Total variation, diffusion, bilateral, non-local means, wavelets</span></li>
-                    <li class="node"><svg class="glyph" viewBox="0 0 96 60" aria-hidden="true"><use href="#g-imageclean"/></svg><span class="node-name">Denoised image</span></li>
-                    <li class="op"><span class="op-name">K-means, FCM, GMM, snakes</span></li>
-                    <li class="node"><svg class="glyph" viewBox="0 0 96 60" aria-hidden="true"><use href="#g-segments"/></svg><span class="node-name">Segmented regions</span></li>
-                  </ol>
-                  <figcaption>The coursework covers both stages: removing noise from medical images, and dividing them into regions.</figcaption>
+                  <p class="flow-title">Denoising</p>
+                <ol class="flow-steps">
+                  <li class="node real"><a class="glyph real square dark" href="assets/figures/proj-med-noisy.webp"><img src="assets/figures/proj-med-noisy.webp" width="567" height="490" loading="lazy" alt="An X-ray of a hand covered in grainy noise."></a><span class="node-name">Hand X-ray with added Gaussian noise, SNR 6.66</span></li>
+                  <li class="op"><span class="op-name">Classical regression filter</span></li>
+                  <li class="node real"><a class="glyph real square dark" href="assets/figures/proj-med-denoised.webp"><img src="assets/figures/proj-med-denoised.webp" width="567" height="490" loading="lazy" alt="The same hand X-ray after filtering, with much of the grain removed."></a><span class="node-name">Denoised, SNR 10.46</span></li>
+                </ol>
+                <p class="flow-title">Segmentation with morphology</p>
+                <ol class="flow-steps">
+                  <li class="node real"><a class="glyph real cover" href="assets/figures/proj-med-lesion.webp"><img src="assets/figures/proj-med-lesion.webp" width="202" height="135" loading="lazy" alt="A close-up photo of a dark skin lesion on reddish skin."></a><span class="node-name">Skin lesion image</span></li>
+                  <li class="op"><span class="op-name">Threshold at 0.25</span></li>
+                  <li class="node real"><a class="glyph real cover" href="assets/figures/proj-med-lesion-binary.webp"><img src="assets/figures/proj-med-lesion-binary.webp" width="187" height="125" loading="lazy" alt="A black-and-white image in which the lesion appears as several separate white patches."></a><span class="node-name">Binary image</span></li>
+                  <li class="op"><span class="op-name">Dilation, then erosion</span></li>
+                  <li class="node real"><a class="glyph real cover" href="assets/figures/proj-med-lesion-mask.webp"><img src="assets/figures/proj-med-lesion-mask.webp" width="188" height="125" loading="lazy" alt="A black-and-white image in which the lesion is one solid white shape."></a><span class="node-name">One connected mask</span></li>
+                </ol>
+                  <figcaption>Two of the assignments, with images from the course reports. The other denoising filters reached SNR 10.55 (bilateral), 10.82 (non-local means), and 10.54 (BM3D) on the same noisy image.</figcaption>
                 </figure>
               </article>
               <article class="project">
