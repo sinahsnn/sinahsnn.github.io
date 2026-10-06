@@ -615,128 +615,135 @@ h3 {
   color: var(--pulse);
 }
 
-/* Research themes: a flush color quilt, one hue per theme */
+/* Research areas: one panel per area, marked by its color, with facts and a real figure */
 
-.quilt {
+.areas {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.area {
+  container-type: inline-size;
+  padding: 22px clamp(16px, 3vw, 26px) 24px;
+  background: var(--paper);
+  border-top: 6px solid var(--area);
+  min-width: 0;
+}
+
+.area-ultra { --area: var(--ultra); }
+.area-pulse { --area: var(--pulse); }
+.area-amber { --area: var(--amber); }
+.area-teal { --area: var(--teal); }
+
+.area > h3 {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  font-size: clamp(1.35rem, 2.4vw, 1.7rem);
+  font-weight: 800;
+  font-stretch: 82%;
+  line-height: 1.1;
+  margin-bottom: 14px;
+}
+
+.area > h3 .swatch {
+  transform: translateY(-1px);
+}
+
+.area-body {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
+  gap: 20px 28px;
 }
 
-@media (min-width: 640px) {
-  .quilt {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-.tile {
-  padding: clamp(22px, 3vw, 34px);
+.area-text {
   display: flex;
   flex-direction: column;
   gap: 12px;
   min-width: 0;
 }
 
-.tile h3 {
-  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
-  font-weight: 800;
-  font-stretch: 80%;
-  line-height: 1.05;
+.area-text p {
+  max-width: 68ch;
 }
 
-.tile p {
+.facts {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2px 18px;
+  margin: 4px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--rule);
+}
+
+.facts dt {
   font-family: var(--display);
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: 0.86rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--muted);
+  padding-top: 0.2em;
+}
+
+.facts dd {
+  margin: 0 0 8px;
+  font-size: 1.02rem;
   line-height: 1.45;
+  min-width: 0;
 }
 
-/* Tile illustrations: line drawings in the tile's ink, with soft fills and a few colored details */
-
-.tile {
-  --ill-line: #14123a;
-  --ill-soft: rgba(255, 255, 255, 0.42);
-  --ill-pop: #ffffff;
+.related {
+  font-family: var(--display);
+  font-size: 0.92rem;
+  font-weight: 500;
+  line-height: 1.5;
 }
 
-.tile.ultra {
-  --ill-line: #ffffff;
-  --ill-soft: rgba(255, 255, 255, 0.16);
-  --ill-pop: #ffffff;
+.area-fig {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
 }
 
-.tile-art {
+.area-fig .plate {
+  display: block;
+  padding: 8px;
+  background: #ffffff;
+  border: 1px solid var(--rule);
+}
+
+.area-fig img {
   display: block;
   width: 100%;
-  max-width: 400px;
+  max-width: 100%;
   height: auto;
-  margin-bottom: 10px;
-  overflow: visible;
 }
 
-.tile-art text {
+.area-fig figcaption {
   font-family: var(--display);
+  font-size: var(--step--1);
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--muted);
 }
 
-.tile-art .l {
-  fill: none;
-  stroke: var(--ill-line);
-  stroke-width: 2.3;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+@container (min-width: 520px) {
+  .facts {
+    grid-template-columns: 8.5rem minmax(0, 1fr);
+  }
+
+  .facts dd {
+    margin-bottom: 4px;
+  }
 }
 
-.tile-art .t {
-  stroke-width: 1.5;
-}
-
-.tile-art .thick {
-  stroke-width: 5;
-}
-
-.tile-art .dash {
-  stroke-dasharray: 3 4;
-}
-
-.tile-art .soft {
-  fill: var(--ill-soft);
-}
-
-.tile-art .pop {
-  fill: var(--ill-pop);
-}
-
-.tile-art .f-line {
-  fill: var(--ill-line);
-}
-
-.tile-art .f-pink { fill: #ff4d6d; }
-.tile-art .f-teal { fill: #19c9a3; }
-.tile-art .f-amber { fill: #ffc233; }
-.tile-art .f-ultra { fill: #2f2be0; }
-.tile-art .s-white { stroke: #ffffff; }
-.tile-art .s-violet { stroke: #cfc8ff; }
-.tile-art .s-pink { stroke: #ff9db0; }
-.tile-art .s-sky { stroke: #9fe0ff; }
-.tile-art .s-teal { stroke: #6df2d2; }
-
-.tile.pulse {
-  background: var(--pulse);
-  color: var(--on-pulse);
-}
-
-.tile.ultra {
-  background: var(--ultra);
-  color: var(--on-ultra);
-}
-
-.tile.amber {
-  background: var(--amber);
-  color: var(--on-amber);
-}
-
-.tile.teal {
-  background: var(--teal);
-  color: var(--on-teal);
+@container (min-width: 640px) {
+  .area-body.side {
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    align-items: start;
+  }
 }
 
 /* Publications */
