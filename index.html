@@ -542,30 +542,30 @@
               </article>
               <article class="project">
                 <h3><a href="https://github.com/sinahsnn/EEG-Data-Classification-using-Common-Spatial-Pattern-CSP-method">EEG classification with common spatial patterns</a></h3>
-                <p>The CSP algorithm with an SVM, separating imagined foot movement from mental subtraction.</p>
+                <p>The CSP algorithm with an SVM, separating imagined foot movement from mental subtraction. The data has 165 training and 45 test trials, each with 30 channels and 1 s at 256 Hz.</p>
                 <figure class="flow flow-pulse">
                   <ol class="flow-steps">
-                    <li class="node"><svg class="glyph" viewBox="0 0 96 60" aria-hidden="true"><use href="#g-eegin"/></svg><span class="node-name">EEG trials from two tasks</span></li>
-                    <li class="op"><span class="op-name">CSP spatial filters</span></li>
-                    <li class="node"><svg class="glyph" viewBox="0 0 96 60" aria-hidden="true"><use href="#g-scatter"/></svg><span class="node-name">Separable features</span></li>
-                    <li class="op"><span class="op-name">SVM</span></li>
-                    <li class="node"><svg class="glyph" viewBox="0 0 96 60" aria-hidden="true"><use href="#g-tag"/></svg><span class="node-name">Foot movement or subtraction</span></li>
+                    <li class="node real"><a class="glyph real square" href="assets/figures/proj-csp-trial.webp"><img src="assets/figures/proj-csp-trial.webp" width="780" height="780" loading="lazy" alt="Thirty EEG channels stacked over one second, each labeled with its electrode name."></a><span class="node-name">One 1 s trial, 30 channels</span></li>
+                    <li class="op"><span class="op-name">Learn CSP filters</span></li>
+                    <li class="node real"><a class="glyph real square" href="assets/figures/proj-csp-filters.webp"><img src="assets/figures/proj-csp-filters.webp" width="579" height="234" loading="lazy" alt="Two scalp maps of CSP filter weights. The one for imagined foot movement peaks over right frontocentral electrodes, and the one for mental subtraction peaks along the midline."></a><span class="node-name">CSP filters for the two tasks</span></li>
+                    <li class="op"><span class="op-name">Filter trials, take variance</span></li>
+                    <li class="node real"><a class="glyph real square" href="assets/figures/proj-csp-variance.webp"><img src="assets/figures/proj-csp-variance.webp" width="668" height="181" loading="lazy" alt="Two scatter plots of trial variances for the two classes. Before CSP the classes overlap, and after CSP one class collapses toward zero on one axis."></a><span class="node-name">Variance features before and after CSP</span></li>
                   </ol>
-                  <figcaption>Spatial filters make the two mental tasks easy to tell apart before a classifier labels each trial.</figcaption>
+                  <figcaption>Spatial filters make the two mental tasks easy to tell apart before a classifier labels each trial. An SVM on the filtered variances reached a cross-validated accuracy of 0.903 with 7 filter pairs. The first plot is drawn from the repository data.</figcaption>
                 </figure>
               </article>
               <article class="project">
                 <h3><a href="https://github.com/sinahsnn/EEG-data-classification-using-Genetic-algorithms">EEG classification with genetic algorithms</a></h3>
-                <p>Feature selection by genetic algorithm, with MLP and RBF networks trained on the selected EEG features.</p>
+                <p>Features are extracted from every channel (variance, form factor, kurtosis, mean, median and maximum frequency, relative energy of the EEG rhythms, correlations between channel pairs, and an asymmetry index). They are ranked with the Fisher criterion, then selected with a genetic algorithm, and used to train MLP and RBF networks.</p>
                 <figure class="flow flow-pulse">
                   <ol class="flow-steps">
-                    <li class="node"><svg class="glyph" viewBox="0 0 96 60" aria-hidden="true"><use href="#g-matrix"/></svg><span class="node-name">Features from every channel</span></li>
-                    <li class="op"><span class="op-name">A genetic algorithm selects</span></li>
-                    <li class="node"><svg class="glyph" viewBox="0 0 96 60" aria-hidden="true"><use href="#g-bits"/></svg><span class="node-name">Best feature subset</span></li>
-                    <li class="op"><span class="op-name">MLP and RBF networks</span></li>
-                    <li class="node"><svg class="glyph" viewBox="0 0 96 60" aria-hidden="true"><use href="#g-tag"/></svg><span class="node-name">Class</span></li>
+                    <li class="node real"><a class="glyph real square" href="assets/figures/proj-ga-mlp-confusion.webp"><img src="assets/figures/proj-ga-mlp-confusion.webp" width="296" height="312" loading="lazy" alt="A confusion matrix for the MLP using Fisher-selected features: 64 and 66 trials correct, 17 and 18 wrong, 78.8 percent overall."></a><span class="node-name">MLP on Fisher-selected features, 78.8%</span></li>
+                    <li class="op"><span class="op-name">Genetic algorithm selects features</span></li>
+                    <li class="node real"><a class="glyph real square" href="assets/figures/proj-ga-fitness.webp"><img src="assets/figures/proj-ga-fitness.webp" width="535" height="311" loading="lazy" alt="A step-shaped curve of fitness against generation, rising from about 0.89 to about 0.97 over 20 generations."></a><span class="node-name">Fitness over 20 generations</span></li>
+                    <li class="op"><span class="op-name">Retrain the MLP</span></li>
+                    <li class="node real"><a class="glyph real square" href="assets/figures/proj-ga-confusion.webp"><img src="assets/figures/proj-ga-confusion.webp" width="245" height="248" loading="lazy" alt="A confusion matrix for the MLP using features chosen by the genetic algorithm: 54 and 53 trials correct, 14 and 11 wrong, 81.1 percent overall."></a><span class="node-name">MLP on GA-selected features, 81.1%</span></li>
                   </ol>
-                  <figcaption>A genetic algorithm searches for the subset of EEG features that lets the networks classify best.</figcaption>
+                  <figcaption>A genetic algorithm searches for the subset of EEG features that lets the networks classify best. Both confusion matrices are from MATLAB and cover the training, validation, and test splits together.</figcaption>
                 </figure>
               </article>
               <article class="project">
@@ -588,25 +588,62 @@
             <h3 class="subhead"><span class="swatch ultra" aria-hidden="true"></span>Imaging and vision</h3>
             <div class="projects">
               <article class="project">
-                <h3><a href="https://github.com/sinahsnn/Medical-Image-Analysis-and-Processing">Medical image denoising and segmentation</a></h3>
-                <p>Denoising with total variation, anisotropic diffusion, bilateral filtering, non-local means, and wavelets. Segmentation with K-means, FCM, BCFCM, GMM, and deformable models.</p>
-                <figure class="flow flow-ultra">
-                  <p class="flow-title">Denoising</p>
-                <ol class="flow-steps">
-                  <li class="node real"><a class="glyph real square dark" href="assets/figures/proj-med-noisy.webp"><img src="assets/figures/proj-med-noisy.webp" width="567" height="490" loading="lazy" alt="An X-ray of a hand covered in grainy noise."></a><span class="node-name">Hand X-ray with added Gaussian noise, SNR 6.66</span></li>
-                  <li class="op"><span class="op-name">Classical regression filter</span></li>
-                  <li class="node real"><a class="glyph real square dark" href="assets/figures/proj-med-denoised.webp"><img src="assets/figures/proj-med-denoised.webp" width="567" height="490" loading="lazy" alt="The same hand X-ray after filtering, with much of the grain removed."></a><span class="node-name">Denoised, SNR 10.46</span></li>
-                </ol>
-                <p class="flow-title">Segmentation with morphology</p>
-                <ol class="flow-steps">
-                  <li class="node real"><a class="glyph real cover" href="assets/figures/proj-med-lesion.webp"><img src="assets/figures/proj-med-lesion.webp" width="202" height="135" loading="lazy" alt="A close-up photo of a dark skin lesion on reddish skin."></a><span class="node-name">Skin lesion image</span></li>
-                  <li class="op"><span class="op-name">Threshold at 0.25</span></li>
-                  <li class="node real"><a class="glyph real cover" href="assets/figures/proj-med-lesion-binary.webp"><img src="assets/figures/proj-med-lesion-binary.webp" width="187" height="125" loading="lazy" alt="A black-and-white image in which the lesion appears as several separate white patches."></a><span class="node-name">Binary image</span></li>
-                  <li class="op"><span class="op-name">Dilation, then erosion</span></li>
-                  <li class="node real"><a class="glyph real cover" href="assets/figures/proj-med-lesion-mask.webp"><img src="assets/figures/proj-med-lesion-mask.webp" width="188" height="125" loading="lazy" alt="A black-and-white image in which the lesion is one solid white shape."></a><span class="node-name">One connected mask</span></li>
-                </ol>
-                  <figcaption>Two of the assignments, with images from the course reports. The other denoising filters reached SNR 10.55 (bilateral), 10.82 (non-local means), and 10.54 (BM3D) on the same noisy image.</figcaption>
-                </figure>
+                <h3><a href="https://github.com/sinahsnn/Medical-Image-Analysis-and-Processing">Medical image analysis and processing</a></h3>
+                <p>Five assignments from a medical image analysis course, written in MATLAB. They cover contrast enhancement and filtering, morphology and texture, wavelets, denoising, and segmentation.</p>
+                <div class="toolbox">
+                  <div class="tool-row tool-head"><p>Topic</p><p>Methods</p><p>Images used</p></div>
+                  <div class="tool-row"><h4>Enhancement and filtering</h4><p data-label="Methods">Histogram equalization and CLAHE. Mean, median, and Gaussian filters. Sobel, Canny, and Laplacian-of-Gaussian edge detection. Fourier amplitude and phase swapping. PCA compression.</p><p data-label="Images used">Chest X-ray, sagittal brain MRI, hand and foot X-rays, a brick wall photo, and a series of six river images</p></div>
+                  <div class="tool-row"><h4>Morphology and texture</h4><p data-label="Methods">Thresholding, dilation, erosion, opening, closing, and hole filling. Histogram statistics. Gray-level co-occurrence and difference matrices.</p><p data-label="Images used">Four melanoma photos, an axial brain MRI, and a synthetic gradient image</p></div>
+                  <div class="tool-row"><h4>Wavelets</h4><p data-label="Methods">2-D wavelet decomposition and reconstruction. Compression keeping 95%, 40%, and 5% of the coefficients, compared with the FFT. Haar wavelet denoising.</p><p data-label="Images used">The boat test image and a COVID-19 chest CT slice</p></div>
+                  <div class="tool-row"><h4>Denoising</h4><p data-label="Methods">Classical kernel regression, bilateral filtering, non-local means, and BM3D. Perona-Malik anisotropic diffusion. Total-variation denoising. Scored with SNR and the edge preservation index.</p><p data-label="Images used">Hand X-ray and the modified Shepp-Logan phantom</p></div>
+                  <div class="tool-row"><h4>Segmentation</h4><p data-label="Methods">K-means, fuzzy c-means with varying fuzziness, and Gaussian mixture models. Bias-corrected fuzzy c-means. Basic and gradient-vector-flow snakes. Chan-Vese active contours.</p><p data-label="Images used">Four MRI contrasts of one slice, melanoma and nevus images, and a synthetic image with a bias field</p></div>
+                </div>
+                <div class="cards">
+                  <figure class="card">
+                    <a class="plate" href="assets/figures/med-histogram-equalization.webp"><img src="assets/figures/med-histogram-equalization.webp" width="568" height="524" loading="lazy" alt="Three versions of a chest X-ray, each beside its intensity histogram: the original, the histogram-equalized image, and the adaptively equalized image."></a>
+                    <figcaption><strong>Histogram equalization.</strong> A chest X-ray and its histogram: original, equalized, and with adaptive equalization (CLAHE).</figcaption>
+                  </figure>
+                  <figure class="card">
+                    <a class="plate" href="assets/figures/med-spatial-filters.webp"><img src="assets/figures/med-spatial-filters.webp" width="1156" height="620" loading="lazy" alt="A noisy brain MRI at the top and four filtered versions beneath it."></a>
+                    <figcaption><strong>Spatial filters.</strong> A noisy sagittal brain MRI after mean, median, and Gaussian filtering, and after median then Gaussian.</figcaption>
+                  </figure>
+                  <figure class="card wide">
+                    <a class="plate" href="assets/figures/med-morphology.webp"><img src="assets/figures/med-morphology.webp" width="1144" height="250" loading="lazy" alt="A photo of a dark skin lesion, a binary image with the lesion in several white patches, and a binary image with the lesion as one solid shape."></a>
+                    <figcaption><strong>Morphology.</strong> A melanoma photo, its binary image after thresholding at 0.25, and the single connected mask after dilation and erosion.</figcaption>
+                  </figure>
+                  <figure class="card">
+                    <a class="plate" href="assets/figures/med-wavelet-denoising.webp"><img src="assets/figures/med-wavelet-denoising.webp" width="476" height="389" loading="lazy" alt="A chest CT slice shown twice, labeled original and denoised."></a>
+                    <figcaption><strong>Wavelet denoising.</strong> A COVID-19 chest CT slice before and after thresholding its Haar wavelet detail coefficients.</figcaption>
+                  </figure>
+                  <figure class="card">
+                    <a class="plate" href="assets/figures/med-bcfcm.webp"><img src="assets/figures/med-bcfcm.webp" width="432" height="384" loading="lazy" alt="Four panels: a shaded four-region input image, a four-color partition, the estimated bias field, and the corrected image with even regions."></a>
+                    <figcaption><strong>Bias-field correction.</strong> BCFCM on a synthetic image: the input, the partition, the estimated bias field, and the corrected image.</figcaption>
+                  </figure>
+                  <figure class="card wide">
+                    <a class="plate" href="assets/figures/med-wavelet-compression.webp"><img src="assets/figures/med-wavelet-compression.webp" width="1220" height="400" loading="lazy" alt="Three reconstructions of a photo of fishing boats. The first two look like the original and the third is reduced to black and white patches."></a>
+                    <figcaption><strong>Wavelet compression.</strong> The boat image rebuilt from 95%, 40%, and 5% of its wavelet coefficients.</figcaption>
+                  </figure>
+                  <figure class="card wide">
+                    <a class="plate" href="assets/figures/med-kernel-denoising.webp"><img src="assets/figures/med-kernel-denoising.webp" width="1134" height="490" loading="lazy" alt="A noisy hand X-ray beside the same image after denoising."></a>
+                    <figcaption><strong>Kernel denoising.</strong> A hand X-ray with added Gaussian noise (SNR 6.66 dB) and after classical regression filtering (10.46 dB). The bilateral filter reached 10.55 dB, non-local means 10.82 dB, and BM3D 10.54 dB.</figcaption>
+                  </figure>
+                  <figure class="card wide">
+                    <a class="plate" href="assets/figures/med-tv-denoising.webp"><img src="assets/figures/med-tv-denoising.webp" width="848" height="276" loading="lazy" alt="Three versions of the Shepp-Logan head phantom: clean, covered in fine noise, and denoised."></a>
+                    <figcaption><strong>Total-variation denoising.</strong> The modified Shepp-Logan phantom: original, noisy, and denoised. Total variation reached an SNR of 25.2 dB with an edge preservation index of 0.93. Anisotropic diffusion on a salt-and-pepper version reached 13.5 dB and 0.25.</figcaption>
+                  </figure>
+                  <figure class="card wide">
+                    <a class="plate" href="assets/figures/med-fcm-clustering.webp"><img src="assets/figures/med-fcm-clustering.webp" width="1024" height="410" loading="lazy" alt="A row of four MRI images of the same slice with different contrasts, above a row of four black-and-white cluster membership maps."></a>
+                    <figcaption><strong>Clustering.</strong> Four MRI contrasts of one slice (top) and the four membership maps from fuzzy c-means (bottom).</figcaption>
+                  </figure>
+                  <figure class="card">
+                    <a class="plate" href="assets/figures/med-chan-vese.webp"><img src="assets/figures/med-chan-vese.webp" width="788" height="200" loading="lazy" alt="An MRI slice with a bright round mass, a white mask of that mass, and the mass cut out on a black background."></a>
+                    <figcaption><strong>Chan-Vese active contour.</strong> An MRI slice, the mask the contour converges to, and the region it selects.</figcaption>
+                  </figure>
+                  <figure class="card">
+                    <a class="plate" href="assets/figures/med-snakes.webp"><img src="assets/figures/med-snakes.webp" width="722" height="358" loading="lazy" alt="Two panels showing a white concave shape with colored areas where the contour misses it. The basic snake leaves a large uncovered area in the concavity and the GVF snake leaves a small one."></a>
+                    <figcaption><strong>Snakes.</strong> Final contours on a concave test shape for a basic snake (left) and a gradient-vector-flow snake (right). The GVF snake follows the concavity more closely.</figcaption>
+                  </figure>
+                </div>
               </article>
               <article class="project">
                 <h3><a href="https://github.com/sinahsnn/bmi534_final_project">Context-aware image captioning</a></h3>
