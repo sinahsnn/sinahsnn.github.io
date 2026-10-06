@@ -1234,6 +1234,42 @@ h3 {
   aspect-ratio: 1 / 1;
 }
 
+.glyph.real.photo {
+  aspect-ratio: 4 / 3;
+}
+
+/* A tile that holds a small table of results */
+
+.node-table {
+  flex: none;
+  width: 190px;
+  border-collapse: collapse;
+  background: var(--tile);
+  border: 1px solid var(--rule);
+  color: var(--glyph-ink);
+  font-family: var(--display);
+  font-size: 0.74rem;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.25;
+}
+
+.node-table th,
+.node-table td {
+  padding: 3px 6px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.node-table th {
+  font-weight: 700;
+  border-bottom: 1px solid var(--glyph-ink);
+}
+
+.node-table td + td,
+.node-table th + th {
+  text-align: right;
+}
+
 .glyph.real.dark {
   background: #000000;
 }
@@ -1362,6 +1398,10 @@ h3 {
   }
 
   .glyph.real {
+    width: 100%;
+  }
+
+  .node-table {
     width: 100%;
   }
 

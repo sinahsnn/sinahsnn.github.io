@@ -664,17 +664,31 @@
               </article>
               <article class="project">
                 <h3><a href="https://github.com/sinahsnn/Joint-Object-Detection-Depth_Estimation">Joint object detection and depth estimation</a></h3>
-                <p>Two concatenated deep neural networks that detect objects and estimate depth together.</p>
+                <p>A deep learning course project with Mohammad Hossein Zarei and Masoud Nateghi. YOLOv5 detects the objects and a DenseDepth network with a DenseNet-169 encoder estimates depth, so every detected object is reported with its distance. It runs as a small desktop app, with separate depth models for indoor and outdoor scenes.</p>
                 <figure class="flow flow-ultra">
                   <ol class="flow-steps">
-                    <li class="node"><svg class="glyph" viewBox="0 0 96 60" aria-hidden="true"><use href="#g-image"/></svg><span class="node-name">RGB image</span></li>
-                    <li class="op"><span class="op-name">Detection network</span></li>
-                    <li class="node real"><a class="glyph real cover" href="assets/figures/proj-depth-boxes.webp"><img src="assets/figures/proj-depth-boxes.webp" width="640" height="480" loading="lazy" alt="A photo of a dining room with boxes and labels drawn around five chairs and a dining table."></a><span class="node-name">Detected objects</span></li>
-                    <li class="op"><span class="op-name">Depth network</span></li>
-                    <li class="node real"><a class="glyph real" href="assets/figures/proj-depth-map.webp"><img src="assets/figures/proj-depth-map.webp" width="332" height="239" loading="lazy" alt="A predicted depth map of an indoor scene, colored from dark for near surfaces to yellow for far ones, with a scale in meters."></a><span class="node-name">Predicted depth</span></li>
+                    <li class="node real"><a class="glyph real photo" href="assets/figures/proj-depth-input.webp"><img src="assets/figures/proj-depth-input.webp" width="640" height="480" loading="lazy" alt="A photo of a dining room with a table and several carved wooden chairs."></a><span class="node-name">Input image</span></li>
+                    <li class="op"><span class="op-name">YOLOv5 finds objects</span></li>
+                    <li class="node real"><a class="glyph real photo" href="assets/figures/proj-depth-boxes.webp"><img src="assets/figures/proj-depth-boxes.webp" width="640" height="480" loading="lazy" alt="The same photo with labeled boxes drawn around six chairs and the dining table."></a><span class="node-name">Detected objects</span></li>
+                    <li class="op"><span class="op-name">DenseDepth adds depth</span></li>
+                    <li class="node real"><table class="node-table"><thead><tr><th scope="col">Object</th><th scope="col">Depth</th><th scope="col">Conf.</th></tr></thead><tbody><tr><td>chair 1</td><td>4.14 m</td><td>0.44</td></tr><tr><td>chair 2</td><td>5.32 m</td><td>0.45</td></tr><tr><td>chair 3</td><td>2.49 m</td><td>0.53</td></tr><tr><td>chair 4</td><td>4.63 m</td><td>0.67</td></tr><tr><td>chair 5</td><td>1.70 m</td><td>0.71</td></tr><tr><td>chair 6</td><td>2.08 m</td><td>0.75</td></tr><tr><td>dining table 1</td><td>1.85 m</td><td>0.46</td></tr></tbody></table><span class="node-name">A distance for every object</span></li>
                   </ol>
-                  <figcaption>Two networks work on the same scene: one finds the objects and the other estimates how far away things are. Both images are model outputs. On the test set the depth network reached &delta;<sub>1</sub> = 0.652, an absolute relative error of 0.189, and an RMSE of 1.448.</figcaption>
+                  <figcaption>YOLOv5 finds the objects and DenseDepth estimates a depth map of the scene. Each object is given the mean depth in the middle of its box.</figcaption>
                 </figure>
+                <div class="cards">
+                  <figure class="card wide">
+                    <a class="plate" href="assets/figures/proj-depth-outdoor.webp"><img src="assets/figures/proj-depth-outdoor.webp" width="981" height="296" loading="lazy" alt="A street with parked and moving cars and a bus, each with a labeled box."></a>
+                    <figcaption><strong>Outdoor scenes.</strong> A street scene processed with the outdoor depth model. The nearest car is reported at 9.1 m and the farthest at 36.3 m.</figcaption>
+                  </figure>
+                  <figure class="card">
+                    <a class="plate" href="assets/figures/proj-depth-filter.webp"><img src="assets/figures/proj-depth-filter.webp" width="1006" height="560" loading="lazy" alt="The same photo of a plant shelf twice. The left one boxes only the nearer objects and the right one only the farther objects."></a>
+                    <figcaption><strong>Distance filter.</strong> The app can keep only the objects nearer (left) or farther (right) than a chosen depth.</figcaption>
+                  </figure>
+                  <figure class="card">
+                    <a class="plate" href="assets/figures/proj-depth-map.webp"><img src="assets/figures/proj-depth-map.webp" width="332" height="239" loading="lazy" alt="A depth map of a shop interior colored from dark for near surfaces to yellow for far ones, with a scale from 1.5 to 5.5 meters."></a>
+                    <figcaption><strong>Depth network.</strong> Predicted depth in meters for an NYU Depth v2 test image. On the test set the network reached &delta;<sub>1</sub> = 0.652, an absolute relative error of 0.189, and an RMSE of 1.448.</figcaption>
+                  </figure>
+                </div>
               </article>
               <article class="project">
                 <h3><a href="https://github.com/sinahsnn/Human-Pose-estimation">Human pose estimation</a></h3>
