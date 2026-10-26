@@ -13,6 +13,16 @@ https://sinahsnn.github.io/.
 There is no build step. Edit the files and push to `main`, and GitHub Pages
 publishes the change.
 
+## Tabs
+
+The page is split into tabs: About, Research, Publications, Experience,
+Projects, Awards and skills, and Contact. Each tab is an element with a
+`data-panel` attribute, and `assets/site.js` shows one at a time. Links
+such as `#publications` or `#pub-ecg-bench` open the right tab, so pages
+can be linked directly. In Projects, the buttons at the top switch between
+the three project areas (`data-group`). Without JavaScript every tab is
+shown in one long page.
+
 ## Editing content
 
 Each section of `index.html` is marked by its `id`: `about`, `research`,

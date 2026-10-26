@@ -172,6 +172,127 @@ button:focus-visible {
   padding: 8px 12px;
 }
 
+[hidden] {
+  display: none !important;
+}
+
+/* ---------- Tab bar: one panel of the site is shown at a time ---------- */
+
+.tabbar {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 20;
+  background: rgba(20, 18, 58, 0.94);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(246, 244, 255, 0.14);
+  color: #f6f4ff;
+}
+
+.tabbar-inner {
+  display: flex;
+  align-items: center;
+  gap: 8px 26px;
+  min-height: 56px;
+}
+
+.tabbar-name {
+  flex: none;
+  font-family: var(--display);
+  font-weight: 800;
+  font-stretch: 80%;
+  font-size: 1.15rem;
+  color: #f6f4ff;
+  text-decoration: none;
+}
+
+.tabs {
+  display: flex;
+  gap: 2px;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  margin-left: auto;
+}
+
+.tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tab {
+  display: block;
+  padding: 17px 11px 15px;
+  font-family: var(--display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  white-space: nowrap;
+  color: rgba(246, 244, 255, 0.74);
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+}
+
+.tab:hover {
+  color: #f6f4ff;
+}
+
+.tab[aria-current="page"] {
+  color: #f6f4ff;
+  border-bottom-color: var(--pulse);
+}
+
+.tab:focus-visible,
+.tabbar-name:focus-visible {
+  outline: 3px solid #f6f4ff;
+  outline-offset: -3px;
+}
+
+@media (max-width: 759px) {
+  .tabbar-name {
+    display: none;
+  }
+
+  .tabs {
+    margin-left: -8px;
+  }
+}
+
+/* Project areas: one group shown at a time */
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 14px;
+  font-family: var(--display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink);
+  background: transparent;
+  border: 2px solid var(--rule);
+  cursor: pointer;
+}
+
+.chip:hover {
+  border-color: var(--ink);
+}
+
+.chip[aria-pressed="true"] {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* The chosen chip already names the area, so its heading is not repeated */
+.chips:not([hidden]) ~ .groups .group > .subhead {
+  display: none;
+}
+
 /* ---------- Hero ---------- */
 
 .hero {
@@ -197,26 +318,6 @@ button:focus-visible {
   outline-color: var(--hero-ink);
 }
 
-.nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px 22px;
-  padding-block: 22px;
-  font-family: var(--display);
-  font-size: 1rem;
-  font-weight: 600;
-}
-
-.nav a {
-  text-decoration: none;
-  padding-block: 4px;
-  border-bottom: 2px solid transparent;
-}
-
-.nav a:hover {
-  border-bottom-color: var(--hero-ink);
-}
-
 .name {
   font-family: var(--display);
   font-weight: 800;
@@ -224,7 +325,7 @@ button:focus-visible {
   font-size: clamp(2.8rem, 13.6vw, 5.4rem);
   line-height: 0.9;
   letter-spacing: -0.015em;
-  padding-block: clamp(14px, 3vw, 34px) clamp(16px, 2vw, 24px);
+  padding-block: clamp(28px, 5vw, 56px) clamp(16px, 2vw, 24px);
 }
 
 .name span {
