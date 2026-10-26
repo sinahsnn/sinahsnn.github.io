@@ -255,3 +255,86 @@
   }
   play();
 })();
+
+// Tabs: show one panel at a time. Links to an element inside a panel
+// (for example #pub-ecg-bench) open that panel and scroll to the element.
+(function () {
+  var panels = Array.prototype.slice.call(document.querySelectorAll("[data-panel]"));
+  var tabs = Array.prototype.slice.call(document.querySelectorAll(".tab"));
+  if (!panels.length) return;
+  var DEFAULT = "about";
+
+  function panelFor(id) {
+    if (!id) return DEFAULT;
+    var el = document.getElementById(id);
+    if (!el) return DEFAULT;
+    var p = el.closest("[data-panel]");
+    return p ? p.getAttribute("data-panel") : DEFAULT;
+  }
+
+  function show(id, scroll) {
+    var name = panelFor(id);
+    panels.forEach(function (p) { p.hidden = p.getAttribute("data-panel") !== name; });
+    tabs.forEach(function (a) {
+      if (a.getAttribute("data-tab") === name) a.setAttribute("aria-current", "page");
+      else a.removeAttribute("aria-current");
+    });
+    var current = document.querySelector('.tab[aria-current="page"]');
+    if (current && current.scrollIntoView) current.scrollIntoView({ block: "nearest", inline: "nearest" });
+    window.dispatchEvent(new Event("resize"));
+    if (!scroll) return;
+    var target = id && document.getElementById(id);
+    if (target && target.getAttribute("data-panel") === null) {
+      var bar = document.querySelector(".tabbar");
+      var y = target.getBoundingClientRect().top + window.pageYOffset - (bar ? bar.offsetHeight + 12 : 0);
+      window.scrollTo({ top: y, behavior: "instant" });
+    } else {
+      window.scrollTo({ top: 0, behavior: "instant" });
+    }
+  }
+
+  function idFromHash() {
+    return decodeURIComponent((location.hash || "").replace(/^#/, ""));
+  }
+
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="#"]');
+    if (!a) return;
+    var id = a.getAttribute("href").slice(1);
+    if (!id || id === "main" || !document.getElementById(id)) return;
+    e.preventDefault();
+    try { history.pushState(null, "", "#" + id); } catch (err) { /* some frames refuse history changes */ }
+    show(id, true);
+  });
+  window.addEventListener("popstate", function () { show(idFromHash(), true); });
+  window.addEventListener("hashchange", function () { show(idFromHash(), true); });
+
+  // Project areas
+  var chips = document.querySelector(".chips");
+  var groups = Array.prototype.slice.call(document.querySelectorAll("[data-group]"));
+  function pick(g) {
+    groups.forEach(function (el) { el.hidden = el.getAttribute("data-group") !== g; });
+    Array.prototype.forEach.call(chips.querySelectorAll(".chip"), function (b) {
+      b.setAttribute("aria-pressed", b.getAttribute("data-show") === g ? "true" : "false");
+    });
+    window.dispatchEvent(new Event("resize"));
+  }
+  if (chips && groups.length) {
+    chips.hidden = false;
+    chips.addEventListener("click", function (e) {
+      var b = e.target.closest(".chip");
+      if (b) pick(b.getAttribute("data-show"));
+    });
+    pick(groups[0].getAttribute("data-group"));
+    // a link to a project inside another area opens that area
+    var origShow = show;
+    show = function (id, scroll) {
+      var el = id && document.getElementById(id);
+      var g = el && el.closest("[data-group]");
+      if (g) pick(g.getAttribute("data-group"));
+      origShow(id, scroll);
+    };
+  }
+
+  show(idFromHash(), !!idFromHash());
+})();
