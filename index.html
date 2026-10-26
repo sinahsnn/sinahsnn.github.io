@@ -178,7 +178,7 @@
 
           <article class="area area-pulse">
             <h3><span class="swatch pulse" aria-hidden="true"></span>Biomedical signal and time-series modeling</h3>
-            <div class="area-body side">
+            <div class="area-body">
               <div class="area-text">
                 <p>How much of one ECG lead can be predicted from the others, and what is left over? One model stacks a linear least-squares layer, an MLP, and an RNN, each refining the previous estimate, to separate the part of a lead that is shared across leads from the part specific to it.</p>
                 <p>A second line of work rebuilds complete 10-second, 12-lead ECGs from printouts that show only 2.5 seconds of each lead. It uses the linear constraints among the limb leads, beat templates aligned to R-peaks on the rhythm lead, and a null-space projection.</p>
@@ -189,9 +189,9 @@
                 </dl>
                 <p class="related">Related: <a href="#pub-lead-network">CinC 2025 paper</a>, <a href="#pub-12-lead">CinC 2026 paper</a>, <a href="#code-kalman">Kalman filter code</a>, <a href="#work-eeg-fmri">EEG-fMRI project</a></p>
               </div>
-              <figure class="area-fig">
-                <a class="plate" href="assets/figures/cinc-2025-architecture.webp"><img src="assets/figures/area-lead-reconstruction.webp" width="783" height="614" loading="lazy" alt="A plot of ECG amplitude in millivolts over two seconds. The reconstructed lead, in red, lies almost exactly on the original, drawn as a dashed black line, through two heartbeats."></a>
-                <figcaption>Reconstructed lead against the original after the third layer. From the CinC 2025 paper.</figcaption>
+              <figure class="area-fig wide">
+                <a class="plate" href="assets/figures/area-lens-kit.webp"><img src="assets/figures/area-lens-kit.webp" width="1576" height="1806" loading="lazy" alt="An illustrated diagram of the three-stage lead reconstruction model drawn as three microscopes. A weighted least-squares lens, an MLP lens, and an S4D lens each look at the observed leads; each stage adds its estimate to the previous one, and the residual error shrinks from lens to lens. An inset explains the sampling-rate-aware S4D layer at 250 and 500 hertz."></a>
+                <figcaption>The model as three lenses on one sample. Weighted least squares estimates the lead from the other leads at one instant, an MLP learns what is left, and a sampling-rate-aware S4D layer models the remaining error over a window around the sample, sharing its continuous-time dynamics across sampling rates. <a href="assets/figures/area-lens-kit.webp">Open the figure full size</a>.</figcaption>
               </figure>
             </div>
           </article>

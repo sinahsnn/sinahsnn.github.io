@@ -922,6 +922,10 @@ h3 {
   height: auto;
 }
 
+.area-fig.wide {
+  max-width: 760px;
+}
+
 .area-fig figcaption {
   font-family: var(--display);
   font-size: var(--step--1);
