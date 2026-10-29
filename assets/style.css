@@ -176,6 +176,20 @@ button:focus-visible {
   display: none !important;
 }
 
+/* Notice shown above the tab bar while the site is being built */
+
+.dev-note {
+  margin: 0;
+  padding: 7px var(--gutter);
+  background: var(--amber);
+  color: #14123a;
+  font-family: var(--display);
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-align: center;
+}
+
 /* ---------- Tab bar: one panel of the site is shown at a time ---------- */
 
 .tabbar {
