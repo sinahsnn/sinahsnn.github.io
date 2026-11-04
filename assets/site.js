@@ -321,9 +321,13 @@
   }
   if (chips && groups.length) {
     chips.hidden = false;
+    chips.classList.add("attract");
     chips.addEventListener("click", function (e) {
       var b = e.target.closest(".chip");
-      if (b) pick(b.getAttribute("data-show"));
+      if (b) {
+        chips.classList.remove("attract");
+        pick(b.getAttribute("data-show"));
+      }
     });
     pick(groups[0].getAttribute("data-group"));
     // a link to a project inside another area opens that area
