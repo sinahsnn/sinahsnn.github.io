@@ -162,179 +162,158 @@
       <h2>Research</h2>
       <div class="stack">
         <div class="areas">
-          <article class="area area-ultra">
-            <h3><span class="swatch ultra" aria-hidden="true"></span>Multimodal physiological AI</h3>
-            <div class="area-body">
-              <div class="area-text">
-                <p>My current Ph.D. work models several physiological signals together, with the aim of objective mental health assessment. The recordings combine EEG, ECG, PPG, respiration, electrodermal activity, and pupillometry, collected while participants respond to psycholinguistic stimuli.</p>
-                <dl class="facts">
-                  <dt>Signals</dt><dd>EEG, ECG, PPG, respiration, electrodermal activity, pupil diameter</dd>
-                  <dt>Stimuli</dt><dd>Psycholinguistic tasks</dd>
-                  <dt>Aim</dt><dd>Objective mental health assessment</dd>
-                  <dt>Status</dt><dd>Ongoing</dd>
-                </dl>
-              </div>
-            </div>
-          </article>
-
-          <article class="area area-pulse">
+          <article class="area area-pulse" id="work-lead-decomposition">
             <h3><span class="swatch pulse" aria-hidden="true"></span>Biomedical signal and time-series modeling</h3>
+            <p class="area-meta">Graduate Research Assistant, Emory University, Oct 2024 to present. Advisor: <a href="https://scholar.google.com/citations?hl=en&amp;user=MkoXtWwAAAAJ&amp;view_op=list_works&amp;sortby=pubdate">Prof. Reza Sameni</a>.</p>
             <div class="area-body">
               <div class="area-text">
-                <p>How much of one ECG lead can be predicted from the others, and what is left over? One model stacks a linear least-squares layer, an MLP, and an RNN, each refining the previous estimate, to separate the part of a lead that is shared across leads from the part specific to it.</p>
-                <p>A second line of work rebuilds complete 10-second, 12-lead ECGs from printouts that show only 2.5 seconds of each lead. It uses the linear constraints among the limb leads, beat templates aligned to R-peaks on the rhythm lead, and a null-space projection.</p>
-                <p>Earlier work includes an adaptive Kalman FIR filter for lead reconstruction and a simulator for simultaneous EEG-fMRI built on Poisson spike generation, a lead-field matrix, and a modified Balloon model.</p>
-                <dl class="facts">
-                  <dt>Data</dt><dd>PhysioNet/CinC 2021 (more than 88,000 12-lead recordings), PTB-XL</dd>
-                  <dt>Methods</dt><dd>Least squares, MLP, RNN, Kalman filtering, null-space projection, wavelet and frequency-domain baselines</dd>
-                </dl>
-                <p class="related">Related: <a href="#pub-lead-network">CinC 2025 paper</a>, <a href="#pub-12-lead">CinC 2026 paper</a>, <a href="#code-kalman">Kalman filter code</a>, <a href="#work-eeg-fmri">EEG-fMRI project</a></p>
+                <p>How much of one ECG lead can be predicted from the others, and what is left over? ECG-Prism answers this for every lead, splitting it into a part shared across leads and a part specific to that lead, and uses the result for reconstruction, fault detection, and diagnosis.</p>
               </div>
               <figure class="area-fig wide">
                 <div class="plate"><video class="anim-fig" src="assets/figures/ecg-prism.mp4" poster="assets/figures/ecg-prism-poster.webp" width="1920" height="750" muted loop playsinline controls preload="metadata" aria-label="Animation of ECG-Prism. Eight ECG leads from a standard recording feed one lane per target lead. In each lane a linear spatial stage, a nonlinear spatial stage, and a spatiotemporal stage each predict the held-out lead from the other seven and pass on their residual. The result is a shared and a lead-specific component for every lead, used for diagnostic classification, missing-lead estimation, biomarker discovery, and inter-lead analysis."></video></div>
                 <figcaption>ECG-Prism: for each lead, a linear spatial stage, a nonlinear spatial stage, and a spatiotemporal state-space stage predict it from the other seven leads, each learning what the previous stage left. This splits every lead into a shared and a lead-specific component, which can be used for diagnosis, missing-lead estimation, biomarker discovery, and inter-lead analysis.</figcaption>
               </figure>
+              <div class="area-details">
+                <ul class="bullets">
+                  <li><b>ECG-Prism</b> (submitted to IEEE JBHI): an interpretable, sampling-frequency-agnostic decomposition framework that combines spatial neural networks with continuous-time state-space models. Trained on more than 70,000 recordings, it performs consistently from 250 to 2000 Hz with a single set of weights and was validated externally on 316,765 ECGs.</li>
+                  <li><b>Clinical applications:</b> reconstructed missing or corrupted leads at 10 to 18 dB SNR; detected electrode misplacement without fault-labeled training data (AUROC up to 0.98 on simulated and 0.91 on real misplacements); improved diagnostic classification macro AUPRC by up to 0.027 across two neural architectures; and generalized to an independent external ECG dataset.</li>
+                  <li><b>Neural ECG decomposition</b> (CinC 2025): a progressive architecture of linear spatial estimation, nonlinear modeling, and spatiotemporal learning that separates shared cardiac activity from lead-specific characteristics, reaching up to 16.2 dB reconstruction SNR on PTB-XL.</li>
+                  <li><b>12-lead reconstruction from printouts</b> (CinC 2026): rebuilds complete 10-second, 12-lead ECGs from printouts that show only 2.5 seconds of each lead, using the linear constraints among the limb leads, beat templates aligned to R-peaks on the rhythm lead, and a null-space projection.</li>
+                  <li><b>Graph signal processing</b> (remote research intern, Emory University, Sep 2023 to Aug 2024, with <a href="https://scholar.google.com/citations?hl=en&amp;user=MkoXtWwAAAAJ&amp;view_op=list_works&amp;sortby=pubdate">Prof. Reza Sameni</a>): modeled directed and undirected connectivity in multichannel biomedical signals, computed Laplacian eigendecompositions and graph Fourier transforms, classified signals from low- and high-graph-frequency features, and interpreted the models with SHAP.</li>
+                  <li><b>Ongoing:</b> a physiology-informed ECG foundation model that combines cardiac electrophysiology, continuous-time dynamics, and representation learning to transfer across sampling frequencies, acquisition systems, and clinical tasks.</li>
+                </ul>
+                <dl class="facts">
+                  <dt>Data</dt><dd>More than 70,000 training recordings, PTB-XL, and 316,765 ECGs for external validation</dd>
+                  <dt>Methods</dt><dd>Linear spatial estimation, MLPs, continuous-time state-space models, graph signal processing, Kalman filtering, null-space projection</dd>
+                </dl>
+                <p class="related">Related: <a href="#pub-lead-network">CinC 2025 paper</a>, <a href="#pub-12-lead">CinC 2026 paper</a>, <a href="#code-kalman">Kalman filter code</a></p>
+              </div>
             </div>
           </article>
 
-          <article class="area area-amber">
+          <article class="area area-amber" id="work-llm-ecg">
             <h3><span class="swatch amber" aria-hidden="true"></span>Large language models for medicine</h3>
+            <p class="area-meta">Graduate Research Assistant, Emory University, with <a href="https://scholar.google.com/citations?hl=en&amp;user=MkoXtWwAAAAJ&amp;view_op=list_works&amp;sortby=pubdate">Prof. Reza Sameni</a> and Prof. Matthew A. Reyna.</p>
             <div class="area-body">
               <div class="area-text">
-                <p>A literature-grounded benchmark of ECG knowledge: 21,808 true/false questions in 10,904 matched pairs, generated with GPT-4o from textbooks, clinical guides, device manuals, slide decks, and conference proceedings, then verified and filtered.</p>
-                <p>Closed, open, and medical-specialized models are evaluated zero-shot on a held-out test set (n = 1,050) and on external sets built from MedQA and MedMCQA. Open models of 7B to 14B parameters are then fine-tuned with LoRA on a training split of 8,803 pairs.</p>
+                <p>ECGQuest is a literature-grounded benchmark of ECG knowledge, used to test how well general-purpose and medical language models understand electrocardiography and how much fine-tuning helps.</p>
+              </div>
+              <figure class="area-fig wide">
+                <div class="plate"><video class="anim-fig" src="assets/figures/ecgquest-pipeline.mp4" poster="assets/figures/ecgquest-pipeline-poster.webp" width="1920" height="1006" muted loop playsinline controls preload="metadata" aria-label="Animation of the ECGQuest study building up step by step: benchmark construction from source documents to matched true and false question pairs, zero-shot evaluation of closed, open, and medical models on a held-out set and on external exam sets, and LoRA fine-tuning of small models."></video></div>
+                <figcaption>The ECGQuest pipeline: building the benchmark, zero-shot evaluation, and LoRA fine-tuning.</figcaption>
+              </figure>
+              <div class="area-details">
+                <ul class="bullets">
+                  <li>Built an automated pipeline that generated 21,808 ECG question-answering samples (10,904 matched true/false pairs) from 23 medical references and conference proceedings, with automated verification and deduplication.</li>
+                  <li>Benchmarked general-purpose and medical models zero-shot on a held-out test set (n = 1,050), with external evaluation on MedQA and MedMCQA.</li>
+                  <li>Fine-tuned five 7B to 14B models with LoRA, improving accuracy by 6.5 to 14.1 percentage points and reaching 76.3% with DeepSeek-R1-14B and 78.5% with a five-model ensemble.</li>
+                  <li>Submitted to ICLR 2027.</li>
+                </ul>
                 <dl class="facts">
                   <dt>Closed models</dt><dd>GPT-3.5, GPT-4o, GPT-5</dd>
                   <dt>Open models</dt><dd>DeepSeek-R1 Distill-Qwen, Gemma-3, Gemma-4, Qwen2.5-Instruct, Mistral-Instruct, Llama-3.1-Instruct</dd>
                   <dt>Medical models</dt><dd>MedGemma, MedAlpaca, BioMistral</dd>
                   <dt>Metrics</dt><dd>Accuracy, macro-F1, Cohen's kappa</dd>
                 </dl>
-                <p class="related">Related: <a href="#pub-ecg-bench">ECG-Bench paper</a>, <a href="#work-llm-ecg">project details</a></p>
+                <p class="related">Related: <a href="#pub-ecg-bench">ECGQuest paper</a></p>
               </div>
-              <figure class="area-fig">
-                <div class="plate"><video class="anim-fig" src="assets/figures/ecgquest-pipeline.mp4" poster="assets/figures/ecgquest-pipeline-poster.webp" width="1920" height="1006" muted loop playsinline controls preload="metadata" aria-label="Animation of the ECG-Bench study building up step by step: benchmark construction from source documents to matched true and false question pairs, zero-shot evaluation of closed, open, and medical models on a held-out set and on external exam sets, and LoRA fine-tuning of small models."></video></div>
-                <figcaption>The ECG-Bench pipeline: building the benchmark, zero-shot evaluation, and LoRA fine-tuning. From the ECG-Bench paper.</figcaption>
-              </figure>
+            </div>
+          </article>
+
+          <article class="area area-ultra">
+            <h3><span class="swatch ultra" aria-hidden="true"></span>Multimodal mental health screening</h3>
+            <p class="area-meta">Graduate Research Assistant, Emory University, ongoing.</p>
+            <div class="area-body">
+              <div class="area-text">
+                <p>Can the body's physiological signals help screen for depression? This work builds classification pipelines for major depressive disorder from cardiac, vascular, and other physiological measurements, and is moving toward models of how these signals change over time.</p>
+              </div>
+              <div class="area-details">
+                <ul class="bullets">
+                  <li><b>MDD classification:</b> developed machine learning pipelines for major depressive disorder classification from ECG, PPG, and multimodal physiological features. Evaluated each modality alone and in combination with traditional classifiers, and extracted time-aligned cardiac, vascular, and cross-modal biomarkers from about 60 participants.</li>
+                  <li><b>Ongoing, dynamic physiological modeling:</b> studying time-varying interactions between physiological signals and inferring changing mental states with dynamical models of multimodal physiological time series.</li>
+                </ul>
+                <dl class="facts">
+                  <dt>Signals</dt><dd>ECG, PPG, and other multimodal physiological recordings</dd>
+                  <dt>Participants</dt><dd>About 60</dd>
+                  <dt>Methods</dt><dd>Biomarker extraction, traditional machine learning classifiers, dynamical modeling of time series</dd>
+                </dl>
+              </div>
+            </div>
+          </article>
+
+          <article class="area area-orange">
+            <h3><span class="swatch orange" aria-hidden="true"></span>Physiological response to vagus nerve stimulation</h3>
+            <p class="area-meta">Graduate Research Assistant, Emory University.</p>
+            <div class="area-body">
+              <div class="area-text">
+                <p>How do the heart, blood vessels, and breathing respond when the vagus nerve is stimulated through the skin of the neck? This work measures those responses in sham-controlled clinical studies of transcutaneous cervical vagus nerve stimulation (tcVNS).</p>
+              </div>
+              <div class="area-details">
+                <ul class="bullets">
+                  <li>Developed a reproducible Python pipeline for analyzing cardiovascular and respiratory responses to tcVNS.</li>
+                  <li>Extracted beat-level and multimodal biomarkers from ECG, PPG, and respiration.</li>
+                  <li>Studied stimulation-induced physiological changes at several temporal resolutions with statistical modeling, separating sustained, transient, and delayed biomarker responses.</li>
+                </ul>
+                <dl class="facts">
+                  <dt>Signals</dt><dd>ECG, PPG, respiration</dd>
+                  <dt>Study design</dt><dd>Sham-controlled clinical studies</dd>
+                  <dt>Methods</dt><dd>Beat-level biomarker extraction, statistical modeling, Python</dd>
+                </dl>
+              </div>
             </div>
           </article>
 
           <article class="area area-teal">
             <h3><span class="swatch teal" aria-hidden="true"></span>Reliable AI for healthcare</h3>
+            <p class="area-meta">Core team member, George B. Moody PhysioNet Challenge, Emory University, Oct 2024 to present.</p>
             <div class="area-body">
               <div class="area-text">
                 <p>Does a result hold outside the conditions a model was trained in? This work includes a large-scale negative-results study on estimating blood pressure from the ECG, and noise-injection tests of the lead-decomposition network.</p>
-                <p>It also covers data that reflects clinical reality. ECG-Image-Database pairs ECG signals with images that carry real scanning, photography, and physical-damage artifacts. On the PhysioNet Challenge team from 2024 to 2026 I worked on curation and validation of public benchmark data, including the 2025 Chagas disease challenge.</p>
+              </div>
+              <figure class="area-fig wide">
+                <a class="plate" href="assets/figures/ecg-image-database-examples.webp"><img src="assets/figures/area-image-artifacts.webp" width="1600" height="392" loading="lazy" alt="Three photographs of the same printed ECG: a phone photograph of a curled page, a water-damaged page, and a deteriorated, stained page."></a>
+                <figcaption>One ECG as a phone photograph, a water-damaged print, and a deteriorated print. From ECG-Image-Database.</figcaption>
+              </figure>
+              <div class="area-details">
+                <ul class="bullets">
+                  <li>Contributed to organizing the PhysioNet/CinC Challenges 2024 and 2025 and the Kaggle ECG Image Digitization competition.</li>
+                  <li>Curated, validated, and documented large-scale clinical ECG datasets and supported benchmark development and evaluation infrastructure.</li>
+                  <li>Co-authored the Chagas disease detection challenge paper (CinC 2025) and ECG-Image-Database, paired ECG images and time series with real-world scanning, photography, and physical-damage artifacts (Physiological Measurement, 2026).</li>
+                </ul>
                 <dl class="facts">
                   <dt>Questions</dt><dd>Robustness, interpretability, generalization, physiological variability, clinically meaningful evaluation</dd>
                 </dl>
                 <p class="related">Related: <a href="#pub-blood-pressure">blood pressure study</a>, <a href="#pub-image-database">ECG-Image-Database</a>, <a href="#pub-chagas">PhysioNet Challenge 2025</a></p>
               </div>
-              <figure class="area-fig">
-                <a class="plate" href="assets/figures/ecg-image-database-examples.webp"><img src="assets/figures/area-image-artifacts.webp" width="1600" height="392" loading="lazy" alt="Three photographs of the same printed ECG: a phone photograph of a curled page, a water-damaged page, and a deteriorated, stained page."></a>
-                <figcaption>One ECG as a phone photograph, a water-damaged print, and a deteriorated print. From ECG-Image-Database.</figcaption>
-              </figure>
             </div>
           </article>
 
-          <article class="area area-violet">
+          <article class="area area-violet" id="work-eeg-fmri">
             <h3><span class="swatch violet" aria-hidden="true"></span>Multimodal physiological signal modeling</h3>
+            <p class="area-meta">Bachelor's project, Sharif University of Technology, Apr 2021 to May 2023. Supervisor: Prof. Arash Amini.</p>
+            <p class="award"><span class="status">Special B.Sc. Thesis Award, among 200 senior projects, 2021/2022</span></p>
             <div class="area-body">
               <div class="area-text">
                 <p>Simulating two brain recordings from one source of truth. A bottom-up neural model drives both simultaneous EEG and fMRI, so the synthetic data comes with known ground truth for testing fusion and source-localization methods.</p>
-                <p>Spike trains for excitatory, inhibitory, and feedback populations are drawn from Poisson processes and combined into neural activity at clustered sources in a realistic head model. The EEG branch projects that activity through a lead-field matrix to the scalp electrodes. The fMRI branch passes it through a modified Balloon model with a capacitor-like activation kernel to give BOLD signals, which are then down-sampled in time.</p>
-                <dl class="facts">
-                  <dt>Modalities</dt><dd>Simultaneous EEG and fMRI</dd>
-                  <dt>Methods</dt><dd>Stochastic spiking, excitatory, inhibitory, and feedback neuron models, lead-field forward model, modified Balloon model</dd>
-                  <dt>Where</dt><dd>Sharif University of Technology, with Ali Ataei, Arash Amini, and Ali Ghazizadeh</dd>
-                </dl>
-                <p class="related">Related: <a href="#work-eeg-fmri">project details</a></p>
               </div>
               <figure class="area-fig wide">
                 <div class="plate"><video class="anim-fig" src="assets/figures/eeg-fmri-animated.mp4" poster="assets/figures/eeg-fmri-animated-poster.webp" width="1440" height="1230" muted loop playsinline controls preload="metadata" aria-label="Animated poster of the simulator. A source in the brain fires spike trains, neuron models turn them into activity, and the activity splits into an EEG branch, through a lead-field matrix to a scalp cap and multichannel EEG, and an fMRI branch, through a modified Balloon model to BOLD curves and brain slices. A counter shows paired EEG-fMRI samples being generated."></video></div>
                 <figcaption>The simulator running: spike generation and neuron models feed an EEG branch and an fMRI branch, and each pass adds a paired EEG-fMRI sample.</figcaption>
               </figure>
+              <div class="area-details">
+                <ul class="bullets">
+                  <li>Modeled neuronal spike trains with random processes, excitatory, inhibitory, and feedback interactions, and spatially correlated activity.</li>
+                  <li>Synthesized multichannel EEG through dipole-based forward modeling, with lead-field matrices computed from a clustered head model.</li>
+                  <li>Simulated fMRI BOLD responses with a modified hemodynamic Balloon model and a capacitor-like activation kernel, down-sampled to fMRI resolution.</li>
+                </ul>
+                <dl class="facts">
+                  <dt>Modalities</dt><dd>Simultaneous EEG and fMRI</dd>
+                  <dt>Collaborators</dt><dd>Ali Ataei, Arash Amini, and Ali Ghazizadeh</dd>
+                  <dt>Poster</dt><dd><a href="assets/figures/eeg-fmri-poster.webp">Static poster</a></dd>
+                </dl>
+              </div>
             </div>
           </article>
-        </div>
-
-        <div>
-          <h3 class="subhead">Research projects</h3>
-          <div class="rows">
-            <div class="row" id="work-lead-decomposition">
-              <p class="when">Oct 2024 to present</p>
-              <div>
-                <h3>A neural network architecture for ECG lead decomposition</h3>
-                <p class="meta">Graduate Research Assistant, Emory University. Supervised by <a href="https://scholar.google.com/citations?hl=en&amp;user=MkoXtWwAAAAJ&amp;view_op=list_works&amp;sortby=pubdate">Prof. Reza Sameni</a>.</p>
-                <figure class="flow flow-pulse">
-                  <ol class="flow-steps">
-                    <li class="node"><svg class="glyph" viewBox="0 0 96 60" aria-hidden="true"><use href="#g-leads"/></svg><span class="node-name">12-lead ECG</span></li>
-                    <li class="op"><span class="op-name">A hybrid network splits every lead</span></li>
-                    <li class="node"><svg class="glyph" viewBox="0 0 96 60" aria-hidden="true"><use href="#g-split"/></svg><span class="node-name">Shared and lead-specific parts</span></li>
-                    <li class="op"><span class="op-name">A residual CNN with attention classifies</span></li>
-                    <li class="node"><svg class="glyph" viewBox="0 0 96 60" aria-hidden="true"><use href="#g-tag"/></svg><span class="node-name">Diagnosis</span></li>
-                  </ol>
-                  <figcaption>The network separates every lead into a part shared across leads and a part unique to that lead. A classifier then tests what the lead-specific parts add to diagnosis.</figcaption>
-                </figure>
-                <ul class="bullets">
-                  <li>Implemented wavelet- and frequency-based approaches as baselines for reconstruction pipelines.</li>
-                  <li>Developed a sampling-frequency-agnostic hybrid neural network for ECG lead decomposition that separates shared from lead-specific components.</li>
-                  <li>Tested the architecture's robustness by injecting noise and assessing generalization in diagnostic settings.</li>
-                  <li>Combined the decomposition network with a residual CNN and attention classifier to measure the diagnostic value of lead-specific components on the PhysioNet/CinC 2021 Challenge data, more than 88,000 12-lead ECG recordings.</li>
-                </ul>
-              </div>
-            </div>
-            <div class="row" id="work-llm-ecg">
-              <p class="when">Apr 2025 to present</p>
-              <div>
-                <h3>Evaluation and fine-tuning of LLMs for ECG question answering</h3>
-                <p class="meta">Graduate Research Assistant, Emory University. Supervised by <a href="https://scholar.google.com/citations?hl=en&amp;user=MkoXtWwAAAAJ&amp;view_op=list_works&amp;sortby=pubdate">Prof. Reza Sameni</a> and Prof. Matthew A. Reyna.</p>
-                <figure class="flow flow-amber">
-                  <ol class="flow-steps">
-                    <li class="node"><svg class="glyph" viewBox="0 0 96 60" aria-hidden="true"><use href="#g-docs"/></svg><span class="node-name">Textbooks, manuals, proceedings</span></li>
-                    <li class="op"><span class="op-name">Language models write questions</span></li>
-                    <li class="node"><svg class="glyph" viewBox="0 0 96 60" aria-hidden="true"><use href="#g-qa"/></svg><span class="node-name">ECG question set</span></li>
-                    <li class="op"><span class="op-name">Zero-shot tests, then fine-tuning</span></li>
-                    <li class="node"><svg class="glyph" viewBox="0 0 96 60" aria-hidden="true"><use href="#g-bars"/></svg><span class="node-name">Scores by question category</span></li>
-                  </ol>
-                  <figcaption>Questions generated from the ECG literature become a benchmark for general and specialized language models, before and after fine-tuning.</figcaption>
-                </figure>
-                <ul class="bullets">
-                  <li>Built a domain-specific ECG question-answering dataset from medical textbooks, clinical manuals, and conference proceedings using automated LLM-based generation.</li>
-                  <li>Ran zero-shot benchmarks of large language models of different sizes, including Gemini, ChatGPT, Mistral, and Gemma, across categories of medical and engineering ECG questions.</li>
-                  <li>Identified domain-dependent performance gaps between general-purpose and specialized models.</li>
-                  <li>Fine-tuned lightweight language models to reach competitive performance with fewer parameters and better efficiency.</li>
-                </ul>
-              </div>
-            </div>
-            <div class="row" id="work-eeg-fmri">
-              <p class="when">Apr 2021 to May 2023</p>
-              <div>
-                <h3>Generation of synthetic simultaneous EEG-fMRI data</h3>
-                <p class="meta">Bachelor's final project, Sharif University of Technology. Supervised by Prof. Arash Amini.</p>
-                <p class="award"><span class="status">Special B.Sc. Thesis Award</span> Chosen among 200 senior projects in 2021/2022.</p>
-                <figure class="flow flow-pulse">
-                  <ol class="flow-steps">
-                    <li class="node"><svg class="glyph" viewBox="0 0 96 60" aria-hidden="true"><use href="#g-spikes"/></svg><span class="node-name">Random spike trains</span></li>
-                    <li class="op"><span class="op-name">Add spatial correlation</span></li>
-                    <li class="node"><svg class="glyph" viewBox="0 0 96 60" aria-hidden="true"><use href="#g-activity"/></svg><span class="node-name">Neural activity in a head model</span></li>
-                    <li class="op"><span class="op-name">Lead field matrix and a modified Balloon model</span></li>
-                    <li class="node"><svg class="glyph" viewBox="0 0 96 60" aria-hidden="true"><use href="#g-eegfmri"/></svg><span class="node-name">Simultaneous EEG and fMRI</span></li>
-                  </ol>
-                  <figcaption>One simulated pattern of neural activity drives both measurements, so the synthetic EEG and fMRI stay consistent with each other.</figcaption>
-                </figure>
-                <figure class="pub-fig">
-                  <a class="plate" href="assets/figures/eeg-fmri-poster.webp"><img src="assets/figures/eeg-fmri-poster.webp" width="2800" height="1978" loading="lazy" alt="A research poster titled Generation of synthetic simultaneous EEG-fMRI data. It has sections on spike generation, modelling excitatory and inhibitory activities, generation of EEG and fMRI data, and simulation results with raster plots, EEG traces, and fMRI maps."></a>
-                  <figcaption>The project poster, with Ali Ataei, Arash Amini, and Ali Ghazizadeh. <a href="assets/figures/eeg-fmri-poster.webp">Open the poster full size</a>.</figcaption>
-                </figure>
-                <ul class="bullets">
-                  <li>Modeled spike-generation blocks using stochastic processes and random variables.</li>
-                  <li>Designed blocks that generate spatially correlated neural activity.</li>
-                  <li>Computed the lead-field matrix by solving the forward problem and clustering the head model.</li>
-                  <li>Proposed pipelines that compute fMRI and EEG data consistent with the simulated neural and hemodynamic activity.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -347,12 +326,12 @@
         <li class="pub" id="pub-ecg-bench">
           <p class="year">2026</p>
           <div>
-            <h3>ECG-Bench: A Literature-Grounded Benchmark and Fine-Tuning Study for Evaluating Large Language Models on Electrocardiography Knowledge</h3>
+            <h3>ECGQuest: Benchmarking and Fine-Tuning Language Models for Electrocardiography</h3>
             <p class="authors"><strong>M. Hassannia</strong>, M. A. Reyna, and R. Sameni</p>
-            <p class="venue">Journal of Biomedical Informatics</p>
+            <p class="venue">International Conference on Learning Representations (ICLR 2027)</p>
             <p class="actions"><span class="status">Submitted</span> <a href="https://arxiv.org/pdf/2608.30893">Preprint on arXiv</a></p>
             <figure class="pub-fig">
-              <div class="plate"><video class="anim-fig" src="assets/figures/ecgquest-pipeline.mp4" poster="assets/figures/ecgquest-pipeline-poster.webp" width="1920" height="1006" muted loop playsinline controls preload="metadata" aria-label="Animation of the ECG-Bench study building up step by step: benchmark construction from source documents to matched true and false question pairs, zero-shot evaluation of closed, open, and medical models on a held-out set and on external exam sets, and LoRA fine-tuning of small models."></video></div>
+              <div class="plate"><video class="anim-fig" src="assets/figures/ecgquest-pipeline.mp4" poster="assets/figures/ecgquest-pipeline-poster.webp" width="1920" height="1006" muted loop playsinline controls preload="metadata" aria-label="Animation of the ECGQuest study building up step by step: benchmark construction from source documents to matched true and false question pairs, zero-shot evaluation of closed, open, and medical models on a held-out set and on external exam sets, and LoRA fine-tuning of small models."></video></div>
               <figcaption>Overview of the study. Matched true/false question pairs are generated from ECG textbooks, guides, manuals, and proceedings, then verified and filtered into a benchmark of 21,808 questions. General-purpose and medical language models are tested zero-shot, and small models are fine-tuned with LoRA.</figcaption>
             </figure>
           </div>

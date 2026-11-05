@@ -918,6 +918,7 @@ h3 {
 .area-amber { --area: var(--amber); }
 .area-teal { --area: var(--teal); }
 .area-violet { --area: #8b5cf6; }
+.area-orange { --area: #ff8a3d; }
 
 .area > h3 {
   display: flex;
@@ -1186,6 +1187,10 @@ h3 {
 
 .swatch.amber {
   background: var(--amber);
+}
+
+.swatch.orange {
+  background: #ff8a3d;
 }
 
 .swatch.violet {
@@ -1767,4 +1772,35 @@ h3 {
   max-width: 100%;
   height: auto;
   background: #ffffff;
+}
+
+/* Research area: who and when, then summary, figure, and details below it */
+.area-meta {
+  margin: -6px 0 14px;
+  font-family: var(--display);
+  font-size: var(--step--1);
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--muted);
+  max-width: 72ch;
+}
+
+.area > .award {
+  margin: -4px 0 14px;
+}
+
+.area-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
+.area-details .bullets {
+  margin-top: 0;
+  max-width: 72ch;
+}
+
+.area-details .bullets b {
+  font-weight: 600;
 }
