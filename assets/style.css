@@ -1754,3 +1754,12 @@ h3 {
 .row .award {
   margin-top: 8px;
 }
+
+/* Animated figures: play while on screen, show the finished frame otherwise */
+.anim-fig {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  background: #ffffff;
+}

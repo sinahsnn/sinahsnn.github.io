@@ -342,3 +342,23 @@
 
   show(idFromHash(), !!idFromHash());
 })();
+
+// Animated figures play from the start when they scroll into view and
+// pause when they leave. With reduced motion they stay on the poster frame.
+(function () {
+  var vids = Array.prototype.slice.call(document.querySelectorAll("video.anim-fig"));
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!vids.length || reduce || !("IntersectionObserver" in window)) return;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      var v = e.target;
+      if (e.isIntersecting) {
+        var p = v.play();
+        if (p && p.catch) p.catch(function () {});
+      } else {
+        v.pause();
+      }
+    });
+  }, { threshold: 0.4 });
+  vids.forEach(function (v) { io.observe(v); });
+})();

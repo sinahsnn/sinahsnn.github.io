@@ -212,8 +212,8 @@
                 <p class="related">Related: <a href="#pub-ecg-bench">ECG-Bench paper</a>, <a href="#work-llm-ecg">project details</a></p>
               </div>
               <figure class="area-fig">
-                <a class="plate" href="assets/figures/ecg-bench-overview.webp"><img src="assets/figures/area-benchmark-construction.webp" width="1800" height="307" loading="lazy" alt="The benchmark construction pipeline: source materials are anonymized, pages are extracted and routed as text, vision, or both, GPT-4o generates true or false questions with sources, and verification and filtering leave matched true and false pairs."></a>
-                <figcaption>Benchmark construction, from source documents to matched true/false pairs. From the ECG-Bench paper.</figcaption>
+                <div class="plate"><video class="anim-fig" src="assets/figures/ecgquest-pipeline.mp4" poster="assets/figures/ecgquest-pipeline-poster.webp" width="1920" height="1006" muted loop playsinline controls preload="metadata" aria-label="Animation of the ECG-Bench study building up step by step: benchmark construction from source documents to matched true and false question pairs, zero-shot evaluation of closed, open, and medical models on a held-out set and on external exam sets, and LoRA fine-tuning of small models."></video></div>
+                <figcaption>The ECG-Bench pipeline: building the benchmark, zero-shot evaluation, and LoRA fine-tuning. From the ECG-Bench paper.</figcaption>
               </figure>
             </div>
           </article>
@@ -332,8 +332,8 @@
             <p class="venue">Journal of Biomedical Informatics</p>
             <p class="actions"><span class="status">Submitted</span> <a href="https://arxiv.org/pdf/2608.30893">Preprint on arXiv</a></p>
             <figure class="pub-fig">
-              <a class="plate" href="assets/figures/ecg-bench-overview.webp"><img src="assets/figures/ecg-bench-overview.webp" width="2400" height="1206" loading="lazy" alt="A three-row overview diagram. Row one, benchmark construction: source materials are anonymized, pages are extracted, GPT-4o generates true or false questions, and verification and filtering produce matched pairs. Row two, zero-shot evaluation: closed, open, and medical specialized models are tested on a held-out set and on external exam sets. Row three, fine-tuning: small models are trained with LoRA adapters and scored."></a>
-              <figcaption>Overview of the study. Matched true/false question pairs are generated from ECG textbooks, guides, manuals, and proceedings, then verified and filtered into a benchmark of 21,808 questions. General-purpose and medical language models are tested zero-shot, and small models are fine-tuned with LoRA. <a href="assets/figures/ecg-bench-overview.webp">Open the figure full size</a>.</figcaption>
+              <div class="plate"><video class="anim-fig" src="assets/figures/ecgquest-pipeline.mp4" poster="assets/figures/ecgquest-pipeline-poster.webp" width="1920" height="1006" muted loop playsinline controls preload="metadata" aria-label="Animation of the ECG-Bench study building up step by step: benchmark construction from source documents to matched true and false question pairs, zero-shot evaluation of closed, open, and medical models on a held-out set and on external exam sets, and LoRA fine-tuning of small models."></video></div>
+              <figcaption>Overview of the study. Matched true/false question pairs are generated from ECG textbooks, guides, manuals, and proceedings, then verified and filtered into a benchmark of 21,808 questions. General-purpose and medical language models are tested zero-shot, and small models are fine-tuned with LoRA.</figcaption>
             </figure>
           </div>
         </li>
