@@ -186,7 +186,7 @@
                   <dt>Data</dt><dd>More than 70,000 training recordings, PTB-XL, and 316,765 ECGs for external validation</dd>
                   <dt>Methods</dt><dd>Linear spatial estimation, MLPs, continuous-time state-space models, graph signal processing, Kalman filtering, null-space projection</dd>
                 </dl>
-                <p class="related">Related: <a href="#pub-lead-network">CinC 2025 paper</a>, <a href="#pub-12-lead">CinC 2026 paper</a>, <a href="#code-kalman">Kalman filter code</a></p>
+                <p class="related">Related: <a href="#pub-ecg-prism">ECG-Prism paper</a>, <a href="#pub-lead-network">CinC 2025 paper</a>, <a href="#pub-12-lead">CinC 2026 paper</a>, <a href="#code-kalman">Kalman filter code</a></p>
               </div>
             </div>
           </article>
@@ -333,6 +333,19 @@
             <figure class="pub-fig">
               <div class="plate"><video class="anim-fig" src="assets/figures/ecgquest-pipeline.mp4" poster="assets/figures/ecgquest-pipeline-poster.webp" width="1920" height="1006" muted loop playsinline controls preload="metadata" aria-label="Animation of the ECGQuest study building up step by step: benchmark construction from source documents to matched true and false question pairs, zero-shot evaluation of closed, open, and medical models on a held-out set and on external exam sets, and LoRA fine-tuning of small models."></video></div>
               <figcaption>Overview of the study. Matched true/false question pairs are generated from ECG textbooks, guides, manuals, and proceedings, then verified and filtered into a benchmark of 21,808 questions. General-purpose and medical language models are tested zero-shot, and small models are fine-tuned with LoRA.</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li class="pub" id="pub-ecg-prism">
+          <p class="year">2026</p>
+          <div>
+            <h3>ECG-Prism: From Decomposition to Representation Learning in ECG Signals</h3>
+            <p class="authors"><strong>M. Hassannia</strong> and R. Sameni</p>
+            <p class="venue">IEEE Journal of Biomedical and Health Informatics (JBHI)</p>
+            <p class="actions"><span class="status">Submitted</span></p>
+            <figure class="pub-fig">
+              <div class="plate"><video class="anim-fig" src="assets/figures/ecg-prism.mp4" poster="assets/figures/ecg-prism-poster.webp" width="1920" height="750" muted loop playsinline controls preload="metadata" aria-label="Animation of ECG-Prism. Eight ECG leads feed one lane per target lead, where linear spatial, nonlinear spatial, and spatiotemporal stages each predict the held-out lead from the other seven. The result is a shared and a lead-specific component for every lead, used for diagnostic classification, missing-lead estimation, biomarker discovery, and inter-lead analysis."></video></div>
+              <figcaption>ECG-Prism splits every lead into a shared and a lead-specific component, using linear spatial, nonlinear spatial, and continuous-time state-space stages that work across sampling rates.</figcaption>
             </figure>
           </div>
         </li>
