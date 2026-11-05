@@ -917,6 +917,7 @@ h3 {
 .area-pulse { --area: var(--pulse); }
 .area-amber { --area: var(--amber); }
 .area-teal { --area: var(--teal); }
+.area-violet { --area: #8b5cf6; }
 
 .area > h3 {
   display: flex;
@@ -1185,6 +1186,10 @@ h3 {
 
 .swatch.amber {
   background: var(--amber);
+}
+
+.swatch.violet {
+  background: #8b5cf6;
 }
 
 .swatch.teal {

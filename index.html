@@ -235,6 +235,26 @@
               </figure>
             </div>
           </article>
+
+          <article class="area area-violet">
+            <h3><span class="swatch violet" aria-hidden="true"></span>Multimodal physiological signal modeling</h3>
+            <div class="area-body">
+              <div class="area-text">
+                <p>Simulating two brain recordings from one source of truth. A bottom-up neural model drives both simultaneous EEG and fMRI, so the synthetic data comes with known ground truth for testing fusion and source-localization methods.</p>
+                <p>Spike trains for excitatory, inhibitory, and feedback populations are drawn from Poisson processes and combined into neural activity at clustered sources in a realistic head model. The EEG branch projects that activity through a lead-field matrix to the scalp electrodes. The fMRI branch passes it through a modified Balloon model with a capacitor-like activation kernel to give BOLD signals, which are then down-sampled in time.</p>
+                <dl class="facts">
+                  <dt>Modalities</dt><dd>Simultaneous EEG and fMRI</dd>
+                  <dt>Methods</dt><dd>Stochastic spiking, excitatory, inhibitory, and feedback neuron models, lead-field forward model, modified Balloon model</dd>
+                  <dt>Where</dt><dd>Sharif University of Technology, with Ali Ataei, Arash Amini, and Ali Ghazizadeh</dd>
+                </dl>
+                <p class="related">Related: <a href="#work-eeg-fmri">project details</a></p>
+              </div>
+              <figure class="area-fig wide">
+                <div class="plate"><video class="anim-fig" src="assets/figures/eeg-fmri-animated.mp4" poster="assets/figures/eeg-fmri-animated-poster.webp" width="1440" height="1230" muted loop playsinline controls preload="metadata" aria-label="Animated poster of the simulator. A source in the brain fires spike trains, neuron models turn them into activity, and the activity splits into an EEG branch, through a lead-field matrix to a scalp cap and multichannel EEG, and an fMRI branch, through a modified Balloon model to BOLD curves and brain slices. A counter shows paired EEG-fMRI samples being generated."></video></div>
+                <figcaption>The simulator running: spike generation and neuron models feed an EEG branch and an fMRI branch, and each pass adds a paired EEG-fMRI sample.</figcaption>
+              </figure>
+            </div>
+          </article>
         </div>
 
         <div>
