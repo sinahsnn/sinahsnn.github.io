@@ -362,3 +362,30 @@
   }, { threshold: 0.4 });
   vids.forEach(function (v) { io.observe(v); });
 })();
+
+// Visitor map: load the MapMyVisitors widget only when the Contact tab is
+// visible, so it can measure its width. If the widget writes its markup
+// with document.write, that markup is placed inside the map box.
+(function () {
+  var box = document.querySelector(".visitors-map[data-src]");
+  if (!box) return;
+  var panel = box.closest("[data-panel]");
+  var loaded = false;
+  function load() {
+    if (loaded || (panel && panel.hidden)) return;
+    loaded = true;
+    var write = document.write;
+    document.write = function (html) { box.insertAdjacentHTML("beforeend", html); };
+    var s = document.createElement("script");
+    s.id = "mapmyvisitors";
+    s.src = box.getAttribute("data-src");
+    s.onload = s.onerror = function () {
+      window.setTimeout(function () { document.write = write; }, 3000);
+    };
+    box.appendChild(s);
+  }
+  if (panel && "MutationObserver" in window) {
+    new MutationObserver(load).observe(panel, { attributes: true, attributeFilter: ["hidden"] });
+  }
+  load();
+})();
